@@ -18,8 +18,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.SetShooterSpeed;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
   private static final double MaxSpeed = 6; // 6 meters per second desired top speed
@@ -30,6 +32,7 @@ public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
+  private final Shooter shooter = new Shooter();
 
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -58,6 +61,12 @@ public class RobotContainer {
       drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
     }
     drivetrain.registerTelemetry(logger::telemeterize);
+
+
+
+    joystick.rightBumper()
+        .whileTrue(new SetShooterSpeed(shooter, 1.0))
+        .whileFalse(new SetShooterSpeed(shooter, 0));
   }
 
   public RobotContainer() {

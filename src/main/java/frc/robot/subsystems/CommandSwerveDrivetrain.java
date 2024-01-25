@@ -2,13 +2,18 @@ package frc.robot.subsystems;
 
 import java.util.function.Supplier;
 
+import org.littletonrobotics.junction.Logger;
+
 import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrainConstants;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModuleConstants;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
+import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -19,6 +24,7 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
+import com.pathplanner.lib.util.PathPlannerLogging;
 import com.pathplanner.lib.util.ReplanningConfig;
 
 /**
@@ -70,6 +76,15 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                         new ReplanningConfig()),
                 () -> false, // Change this if the path needs to be flipped on red vs blue
                 this); // Subsystem for requirements
+        PathPlannerLogging.setLogActivePathCallback(
+                (activePath) -> {
+                    Logger.recordOutput(
+                            "Odometry/Trajectory", activePath.toArray(new Pose2d[activePath.size()]));
+                });
+        PathPlannerLogging.setLogTargetPoseCallback(
+                (targetPose) -> {
+                    Logger.recordOutput("Odometry/TrajectorySetpoint", targetPose);
+                });
     }
 
     private void startSimThread() {
@@ -93,5 +108,18 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
     public ChassisSpeeds getCurrentRobotChassisSpeeds() {
         return m_kinematics.toChassisSpeeds(getState().ModuleStates);
+
+    }
+
+    @Override
+    public void periodic() {
+        if (DriverStation.isDisabled()) {
+            Logger.recordOutput("SwerveStates/Setpoints", new SwerveModuleState[] {});
+        } else {
+            Logger.recordOutput("SwerveStates/Setpoints", getState().ModuleTargets);
+            Logger.recordOutput("SwerveStates/Measured", getState().ModuleStates);
+        }
+        
+
     }
 }
