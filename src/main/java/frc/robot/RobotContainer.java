@@ -18,10 +18,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.SetIndexerSpeed;
+import frc.robot.commands.SetShooterAngle;
 import frc.robot.commands.SetShooterSpeed;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.ShooterAngle;
+
+
 
 public class RobotContainer {
   private static final double MaxSpeed = 6; // 6 meters per second desired top speed
@@ -33,6 +39,8 @@ public class RobotContainer {
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
   private final Shooter shooter = new Shooter();
+  private final Conveyor conveyor = new Conveyor();
+  private final ShooterAngle shooterAngle = new ShooterAngle();
 
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -65,8 +73,23 @@ public class RobotContainer {
 
 
     joystick.rightBumper()
+        .whileTrue(new SetShooterSpeed(shooter, 0.75))
+        .whileFalse(new SetShooterSpeed(shooter, 0));
+
+    joystick.leftBumper()
         .whileTrue(new SetShooterSpeed(shooter, 1.0))
         .whileFalse(new SetShooterSpeed(shooter, 0));
+
+    joystick.a()
+        .whileTrue(new SetIndexerSpeed(conveyor, 0.5))
+        .whileFalse(new SetIndexerSpeed(conveyor, 0.0));
+
+    joystick.y()
+        .whileTrue(new SetShooterAngle(shooterAngle, 0.06 /*Constants.LOCATION_TRUSS*/))
+        .whileFalse(new SetShooterAngle(shooterAngle, 0.00 /*Constants.LOCATION_SUBWOOFER*/));
+    // joystick.b()
+    //     .whileTrue(new SetShooterAngle(shooterAngle, Constants.LOCATION_WING))
+    //     .whileFalse(new SetShooterAngle(shooterAngle, Constants.LOCATION_SUBWOOFER));
   }
 
   public RobotContainer() {
@@ -78,5 +101,9 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
+  }
+
+  public void zeroPidgeon() {
+    drivetrain.getPigeon2().setYaw(0);
   }
 }

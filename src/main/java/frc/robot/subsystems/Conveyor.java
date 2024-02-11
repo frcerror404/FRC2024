@@ -4,31 +4,25 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.hardware.CANcoder;
+import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Shooter extends SubsystemBase {
-  /** Creates a new Shooter. */
-  TalonFX ShooterA = new TalonFX(50);
-  TalonFX ShooterB = new TalonFX(51);
-
-
-
-  public Shooter() {}
+public class Conveyor extends SubsystemBase {
+  TalonFX ShooterFeederMotor = new TalonFX(60);
+  /** Creates a new Conveyor. */
+  public Conveyor() {}
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-
-
   }
 
+  public void setFeederSpeed(double speed)
+  {
+    speed = -speed;
 
-
-  public void setShooterSpeed(double speed) {
-    ShooterB.set(speed);
-    ShooterA.set(-speed);
-  } 
+    ShooterFeederMotor.setControl(new DutyCycleOut(speed));
+  }
 }

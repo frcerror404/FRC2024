@@ -24,7 +24,7 @@ public class Robot extends LoggedRobot {
 
   @Override
   public void robotInit() {
-    //configLogging();
+    configLogging();
 
     m_robotContainer = new RobotContainer();
   }
@@ -45,6 +45,8 @@ public class Robot extends LoggedRobot {
 
   @Override
   public void autonomousInit() {
+    m_robotContainer.zeroPidgeon();
+
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     if (m_autonomousCommand != null) {
@@ -91,7 +93,7 @@ public class Robot extends LoggedRobot {
     Logger.recordMetadata("FRC2024", "7226 2024 Competition Robot"); // Set a metadata value
 
     if (isReal()) {
-      Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
+      //Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
       Logger.addDataReceiver(new NT4Publisher()); // Publish data to NetworkTables
       new PowerDistribution(1, ModuleType.kRev); // Enables power distribution logging
     } else {
