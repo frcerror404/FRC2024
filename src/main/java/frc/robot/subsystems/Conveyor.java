@@ -8,9 +8,12 @@ import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Conveyor extends SubsystemBase {
-  TalonFX ShooterFeederMotor = new TalonFX(60);
+  TalonFX ShooterFeederMotor = new TalonFX(Constants.SHOOTER_FEEDER_ID);
+
+  
   /** Creates a new Conveyor. */
   public Conveyor() {}
 

@@ -1,13 +1,32 @@
 package frc.robot;
 
 public class Constants {
-    
 
-    public static final double SHOOTER_ANGLE_ZERO_OFFSET = 65.0;
+    /**
+     * CAN IDs
+     */
+
+    // Shooter
+    public static final int TOP_SHOOTER_ID = 50;
+    public static final int BOTTOM_SHOOTER_ID = 51;
+    
+    // Shooter Tilt/Angle
+    public static final int ANGLE_MOTOR_ID = 52;
+    public static final int ANGLE_ENCODER_ID = 53;
+
+    // Intake
+
+    // Conveyor
+    public static final int SHOOTER_FEEDER_ID = 60;
+
+    // Climbers
+
+    
 
     /**
      * Constants for Angle Motor
      */
+    public static final double SHOOTER_ANGLE_ZERO_OFFSET = 65.0;
     public static final double ANGLE_GEAR_RATIO = (36.0 / 12.0) * (79.0 / 10.0);
     public static final double ANGLE_ENCODER_OFFSET = 0.457031;
     public static final double ANGLE_PID_kP = 150.0;

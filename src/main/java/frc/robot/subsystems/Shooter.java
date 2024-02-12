@@ -4,31 +4,70 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.hardware.CANcoder;
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.Follower;
+import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.InvertedValue;
 
+import edu.wpi.first.networktables.DoublePublisher;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  TalonFX ShooterA = new TalonFX(50);
-  TalonFX ShooterB = new TalonFX(51);
+  private final TalonFX TopShooterMotor = new TalonFX(Constants.TOP_SHOOTER_ID);
+  private final TalonFX BottomShooterMotor = new TalonFX(Constants.BOTTOM_SHOOTER_ID);
+
+  private double targetRPM;
+
+  private VoltageOut motorVoltageRequest = new VoltageOut(0);
+
+  private final DoublePublisher TopWheelRPMOut;
+  private final DoublePublisher BottomWheelRPMOut;
+  private final DoublePublisher TargetRPMOut;
+  //private final DoublePublisher RPMErrorOut;
+  private final DoublePublisher TopMotorTemperatureOut;
+  private final DoublePublisher BottomMotorTemperatureOut;
 
 
+  public Shooter() {
+    motorSetup();
 
-  public Shooter() {}
+    NetworkTableInstance inst = NetworkTableInstance.getDefault();
+    NetworkTable shooterTable = inst.getTable("shooter");
+    
+    TopWheelRPMOut = shooterTable.getDoubleTopic("Top Wheel RPM").publish();
+    BottomWheelRPMOut = shooterTable.getDoubleTopic("Bottom Wheel RPM").publish();
+    TargetRPMOut = shooterTable.getDoubleTopic("Target RPM").publish();
+    TopMotorTemperatureOut = shooterTable.getDoubleTopic("Top Motor Temperature").publish();
+    BottomMotorTemperatureOut = shooterTable.getDoubleTopic("Bottom Motor Temperature").publish();
+  }
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    TopWheelRPMOut.set(TopShooterMotor.getRotorVelocity().getValueAsDouble() / 60.0f);
+    BottomWheelRPMOut.set(BottomShooterMotor.getRotorVelocity().getValueAsDouble() / 60.0f);
+    TargetRPMOut.set(targetRPM);
+    TopMotorTemperatureOut.set(TopShooterMotor.getDeviceTemp().getValueAsDouble());
+    BottomMotorTemperatureOut.set(BottomShooterMotor.getDeviceTemp().getValueAsDouble());
+  }
 
+  private void motorSetup() {
+    TalonFXConfiguration motorA_cfg = new TalonFXConfiguration();
+    motorA_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
 
+    TopShooterMotor.getConfigurator().apply(motorA_cfg);
+    
+    BottomShooterMotor.setControl(new Follower(TopShooterMotor.getDeviceID(), true));
   }
 
 
 
   public void setShooterSpeed(double speed) {
-    ShooterB.set(speed);
-    ShooterA.set(-speed);
+    motorVoltageRequest.withOutput(12.0 * speed);
+    BottomShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed));
   } 
 }

@@ -21,7 +21,6 @@ import frc.robot.generated.TunerConstants;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.PathPlannerLogging;

@@ -7,27 +7,25 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
-import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
 import com.ctre.phoenix6.signals.FeedbackSensorSourceValue;
 import com.ctre.phoenix6.signals.SensorDirectionValue;
 
-import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ShooterAngle extends SubsystemBase {
 
-  private final TalonFX angleMotor = new TalonFX(52);
-  private final CANcoder angleEncoder = new CANcoder(53);
+  private final TalonFX angleMotor = new TalonFX(Constants.ANGLE_MOTOR_ID);
+  private final CANcoder angleEncoder = new CANcoder(Constants.ANGLE_ENCODER_ID);
 
   private final DoublePublisher motorEncoderOut;
+  private final DoublePublisher motorTemperatureOut;
   private final DoublePublisher shooterAnglePositionOut;
   private final DoublePublisher shooterAngleTargetOut;
 
@@ -44,6 +42,7 @@ public class ShooterAngle extends SubsystemBase {
     NetworkTable shooterTable = inst.getTable("shooter");
     
     motorEncoderOut = shooterTable.getDoubleTopic("Angle Motor Encoder").publish();
+    motorTemperatureOut = shooterTable.getDoubleTopic("Angle Motor Temperature").publish();
     shooterAnglePositionOut = shooterTable.getDoubleTopic("Shooter Angle Position").publish();
     shooterAngleTargetOut = shooterTable.getDoubleTopic("Shooter Angle Target").publish();
   }
@@ -62,7 +61,7 @@ public class ShooterAngle extends SubsystemBase {
     fx_cfg.Feedback.SensorToMechanismRatio = 1.0;
     fx_cfg.Feedback.RotorToSensorRatio = Constants.ANGLE_GEAR_RATIO;
     fx_cfg.CurrentLimits.StatorCurrentLimit = Constants.ANGLE_MOTOR_CURRENT_LIMIT;
-    fx_cfg.CurrentLimits.StatorCurrentLimitEnable = false;
+    fx_cfg.CurrentLimits.StatorCurrentLimitEnable = true;
     
     fx_cfg.Slot0.kP = Constants.ANGLE_PID_kP;
     fx_cfg.Slot0.kI = Constants.ANGLE_PID_kI;
@@ -83,6 +82,7 @@ public class ShooterAngle extends SubsystemBase {
   public void periodic() 
   {
     motorEncoderOut.set(getShooterAngle());
+    motorTemperatureOut.set(angleMotor.getDeviceTemp().getValueAsDouble());
     shooterAnglePositionOut.set(angleMotor.getPosition().getValueAsDouble());
     shooterAngleTargetOut.set(shooterAngleTarget);
   }
@@ -98,12 +98,14 @@ public class ShooterAngle extends SubsystemBase {
   public void setShooterAngle(double angleDegrees)
   {
     shooterAngleTarget = angleDegrees;
+    double motorAngleTarget = angleDegrees - Constants.SHOOTER_ANGLE_ZERO_OFFSET;
+    motorAngleTarget = shooterAngleTarget / 360.0f;
 
     // Phoenix Tuner X liked kP = 150, kI = 15, kD = 0 for Motion Magic
     // Also, positions 0.00 - 0.12 was the range of motion for the shooter
     // Unsure of whether to put the desired angle (Fused CANCoder) or the motor position?
 
-    angleMotor.setControl(motorCommand.withPosition(angleDegrees));
+    angleMotor.setControl(motorCommand.withPosition(motorAngleTarget));
   }
 
   public void zeroMotorEncoder() 
