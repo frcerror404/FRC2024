@@ -48,8 +48,8 @@ public class Shooter extends SubsystemBase {
 
   @Override
   public void periodic() {
-    TopWheelRPMOut.set(TopShooterMotor.getRotorVelocity().getValueAsDouble() / 60.0f);
-    BottomWheelRPMOut.set(BottomShooterMotor.getRotorVelocity().getValueAsDouble() / 60.0f);
+    TopWheelRPMOut.set(TopShooterMotor.getRotorVelocity().getValueAsDouble() * 60.0f);
+    BottomWheelRPMOut.set(BottomShooterMotor.getRotorVelocity().getValueAsDouble() * 60.0f);
     TargetRPMOut.set(targetRPM);
     TopMotorTemperatureOut.set(TopShooterMotor.getDeviceTemp().getValueAsDouble());
     BottomMotorTemperatureOut.set(BottomShooterMotor.getDeviceTemp().getValueAsDouble());
@@ -68,6 +68,6 @@ public class Shooter extends SubsystemBase {
 
   public void setShooterSpeed(double speed) {
     motorVoltageRequest.withOutput(12.0 * speed);
-    BottomShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed));
-  } 
+    TopShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed));
+  }
 }

@@ -83,11 +83,11 @@ public class RobotContainer {
         .whileFalse(new SetIndexerSpeed(conveyor, 0.0));
 
     joystick.y()
-        .whileTrue(new SetShooterAngle(shooterAngle, 0.06 /*Constants.LOCATION_TRUSS*/))
-        .whileFalse(new SetShooterAngle(shooterAngle, 0.00 /*Constants.LOCATION_SUBWOOFER*/));
-    // joystick.b()
-    //     .whileTrue(new SetShooterAngle(shooterAngle, Constants.LOCATION_WING))
-    //     .whileFalse(new SetShooterAngle(shooterAngle, Constants.LOCATION_SUBWOOFER));
+        .whileTrue(new SetShooterAngle(shooterAngle,  Constants.LOCATION_TRUSS))
+        .whileFalse(new SetShooterAngle(shooterAngle, Constants.LOCATION_HOME));
+    joystick.b()
+        .whileTrue(new SetShooterAngle(shooterAngle, Constants.LOCATION_TEST))
+        .whileFalse(new SetShooterAngle(shooterAngle, Constants.LOCATION_HOME));
   }
 
   public RobotContainer() {
