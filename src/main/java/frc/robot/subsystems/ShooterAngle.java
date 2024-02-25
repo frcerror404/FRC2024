@@ -98,12 +98,12 @@ public class ShooterAngle extends SubsystemBase {
     shooterAngleTargetRawOut.set(shooterAngleTargetRaw);
     motorCurrentOut.set(angleMotor.getStatorCurrent().getValueAsDouble());
 
-    if(getShooterAngle() < 70.0 && shooterAngleTarget == Constants.LOCATION_HOME) 
-    {
-      angleMotor.getConfigurator().apply(cl_cfg.withStatorCurrentLimit(Constants.ANGLE_MOTOR_CURRENT_LIMIT_HOME));
-    } else {
-      angleMotor.getConfigurator().apply(new CurrentLimitsConfigs().withStatorCurrentLimit(Constants.ANGLE_MOTOR_CURRENT_LIMIT)); 
-    }
+    // if(getShooterAngle() < 70.0 && shooterAngleTarget == Constants.LOCATION_HOME) 
+    // {
+    //   angleMotor.getConfigurator().apply(cl_cfg.withStatorCurrentLimit(Constants.ANGLE_MOTOR_CURRENT_LIMIT_HOME));
+    // } else {
+    //   angleMotor.getConfigurator().apply(new CurrentLimitsConfigs().withStatorCurrentLimit(Constants.ANGLE_MOTOR_CURRENT_LIMIT)); 
+    // }
   }
 
   public double getShooterAngle()

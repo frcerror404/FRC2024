@@ -18,8 +18,8 @@ import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  private final TalonFX TopShooterMotor = new TalonFX(Constants.TOP_SHOOTER_ID);
-  private final TalonFX BottomShooterMotor = new TalonFX(Constants.BOTTOM_SHOOTER_ID);
+  private final TalonFX TopShooterMotor = new TalonFX(Constants.SHOOTER_TOP_ID);
+  private final TalonFX BottomShooterMotor = new TalonFX(Constants.SHOOTER_BOTTOM_ID);
 
   private double targetRPM;
 

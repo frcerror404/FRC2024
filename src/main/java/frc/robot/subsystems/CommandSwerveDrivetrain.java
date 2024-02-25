@@ -46,6 +46,10 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
 
         configurePathPlanner();
+
+        var result = getPigeon2().setYaw(0.0);
+
+
     }
 
     public CommandSwerveDrivetrain(SwerveDrivetrainConstants driveTrainConstants, SwerveModuleConstants... modules) {
@@ -54,6 +58,9 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
             startSimThread();
         }
         configurePathPlanner();
+        
+
+        var result = getPigeon2().setYaw(0.0);
     }
 
     private void configurePathPlanner() {
