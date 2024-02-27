@@ -9,10 +9,10 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.signals.FeedbackSensorSourceValue;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import edu.wpi.first.networktables.DoublePublisher;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.enums.IntakePosition;
@@ -25,11 +25,21 @@ public class IntakePivot extends SubsystemBase {
   private final CurrentLimitsConfigs cl_cfg = new CurrentLimitsConfigs();
 
   private IntakePosition requested_position = IntakePosition.UP;
+  private double requested_position_raw = 0.0;
 
   private double minIntakePosition = Constants.INTAKE_UP_POS;
 
+  private final DoublePublisher ArmAngleOut, ArmAngleRawOut, ArmAngleRequestOut;
+
   /** Creates a new Intake. */
   public IntakePivot() {
+
+    NetworkTableInstance inst = NetworkTableInstance.getDefault();
+    NetworkTable shooterTable = inst.getTable("intake pivot");
+    
+    ArmAngleOut = shooterTable.getDoubleTopic("Intake Angle").publish();
+    ArmAngleRawOut = shooterTable.getDoubleTopic("Intake Angle Raw").publish();
+    ArmAngleRequestOut = shooterTable.getDoubleTopic("Intake Angle Request").publish();
 
     TalonFXConfiguration fx_cfg = new TalonFXConfiguration();
 
@@ -63,13 +73,25 @@ public class IntakePivot extends SubsystemBase {
 
     double raw_pos = 0;
 
-    if(this.requested_position == IntakePosition.DOWN) {
-      raw_pos = minIntakePosition + Constants.INTAKE_POS_DELTA;
-    } else {
-      raw_pos = minIntakePosition;
+    switch(this.requested_position) {
+      case DOWN:
+        raw_pos = minIntakePosition + Constants.INTAKE_POS_DELTA;
+        break;
+      case AMP:
+        raw_pos = minIntakePosition + Constants.INTAKE_AMP_POS;
+        break;
+      case UP:
+      default:
+        raw_pos = minIntakePosition;
     }
 
+    requested_position_raw = raw_pos;
+
     RightIntakePivot.setControl(new MotionMagicVoltage(raw_pos));
+  }
+
+  private double getIntakeAngle() {
+    return RightIntakePivot.getPosition().getValueAsDouble() / Constants.INTAKE_ROTOR_TO_MECHANISM_RATIO * 365.0;
   }
 
   @Override
@@ -78,5 +100,9 @@ public class IntakePivot extends SubsystemBase {
     if(RightIntakePivot.getPosition().getValueAsDouble() < minIntakePosition) {
       minIntakePosition = RightIntakePivot.getPosition().getValueAsDouble();
     }
+
+    ArmAngleOut.set(getIntakeAngle());
+    ArmAngleRawOut.set(RightIntakePivot.getPosition().getValueAsDouble());
+    ArmAngleRequestOut.set(requested_position_raw);
   }
 }

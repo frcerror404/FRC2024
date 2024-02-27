@@ -117,6 +117,10 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
     }
 
+    public Command zeroGyro() {
+        return run(() -> this.zeroGyro());
+    }
+
     @Override
     public void periodic() {
         if (DriverStation.isDisabled()) {

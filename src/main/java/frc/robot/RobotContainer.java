@@ -19,11 +19,15 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.SetIndexerSpeed;
 import frc.robot.commands.SetIntakePosition;
 import frc.robot.commands.SetIntakeSpeed;
+import frc.robot.commands.IntakeAndConveyor;
+import frc.robot.commands.SetClimberSpeed;
 import frc.robot.commands.SetConveyorSpeed;
 import frc.robot.commands.SetShooterAngle;
 import frc.robot.commands.SetShooterSpeed;
+import frc.robot.enums.IntakeConveyorSpeed;
 import frc.robot.enums.IntakePosition;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.Climbers;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.Indexer;
@@ -50,6 +54,7 @@ public class RobotContainer {
   private final IntakePivot intakePivot = new IntakePivot();
   private final Conveyor conveyor = new Conveyor();
   private final Intake intake = new Intake();
+  private final Climbers climbers = new Climbers();
 
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -72,7 +77,7 @@ public class RobotContainer {
         .applyRequest(() -> point.withModuleDirection(new Rotation2d(-driver.getLeftY(), -driver.getLeftX()))));
 
     // reset the field-centric heading on left bumper press
-    driver.leftBumper().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
+    driver.start().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
 
     if (Utils.isSimulation()) {
       drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
@@ -80,13 +85,12 @@ public class RobotContainer {
     drivetrain.registerTelemetry(logger::telemeterize);
 
 
-
-    driver.rightBumper()
-        .whileTrue(new SetShooterSpeed(shooter, 0.75))
+    driver.rightTrigger(0.5)
+        .whileTrue(new SetShooterSpeed(shooter, 0.65))
         .whileFalse(new SetShooterSpeed(shooter, 0));
 
-    driver.leftBumper()
-        .whileTrue(new SetShooterSpeed(shooter, 1.0))
+    driver.leftTrigger(0.5)
+        .whileTrue(new SetShooterSpeed(shooter, 0.21))
         .whileFalse(new SetShooterSpeed(shooter, 0));
 
     driver.a()
@@ -104,6 +108,10 @@ public class RobotContainer {
         .whileTrue(new SetIntakePosition(intakePivot, IntakePosition.DOWN))
         .whileFalse(new SetIntakePosition(intakePivot, IntakePosition.UP));
 
+    operator.leftBumper()
+        .whileTrue(new SetIntakePosition(intakePivot, IntakePosition.AMP))
+        .whileFalse(new SetIntakePosition(intakePivot, IntakePosition.UP));
+
     operator.a()
         .whileTrue(new SetConveyorSpeed(conveyor, 0.4))
         .whileFalse(new SetConveyorSpeed(conveyor, 0));
@@ -111,6 +119,22 @@ public class RobotContainer {
     operator.y()
         .whileTrue(new SetIntakeSpeed(intake, 0.5))
         .whileFalse(new SetIntakeSpeed(intake, 0.0));
+
+    operator.x()
+        .whileTrue(new SetIntakeSpeed(intake, -0.8))
+        .whileFalse(new SetIntakeSpeed(intake, 0.0));
+
+    operator.b()
+        .whileTrue(new IntakeAndConveyor(intake, conveyor, IntakeConveyorSpeed.ON))
+        .whileFalse(new IntakeAndConveyor(intake, conveyor, IntakeConveyorSpeed.OFF));
+
+    operator.rightTrigger(.1)
+        .whileTrue(new SetClimberSpeed(climbers, 0.5))
+        .whileFalse(new SetClimberSpeed(climbers, 0.0));
+
+    operator.leftTrigger(.1)
+        .whileTrue(new SetClimberSpeed(climbers, -0.5))
+        .whileFalse(new SetClimberSpeed(climbers, 0.0));
   }
 
   public RobotContainer() {
@@ -125,6 +149,6 @@ public class RobotContainer {
   }
 
   public void zeroPigeon() {
-    // drivetrain.getPigeon2().setYaw(0);
+    drivetrain.getPigeon2().setYaw(0);
   }
 }
