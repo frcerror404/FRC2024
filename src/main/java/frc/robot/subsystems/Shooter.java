@@ -33,17 +33,19 @@ public class Shooter extends SubsystemBase {
   private final DoublePublisher BottomMotorTemperatureOut;
 
 
+
   public Shooter() {
     motorSetup();
 
     NetworkTableInstance inst = NetworkTableInstance.getDefault();
     NetworkTable shooterTable = inst.getTable("shooter");
+    NetworkTable temperatureTable = inst.getTable("temperature");
     
     TopWheelRPMOut = shooterTable.getDoubleTopic("Top Wheel RPM").publish();
     BottomWheelRPMOut = shooterTable.getDoubleTopic("Bottom Wheel RPM").publish();
     TargetRPMOut = shooterTable.getDoubleTopic("Target RPM").publish();
-    TopMotorTemperatureOut = shooterTable.getDoubleTopic("Top Motor Temperature").publish();
-    BottomMotorTemperatureOut = shooterTable.getDoubleTopic("Bottom Motor Temperature").publish();
+    TopMotorTemperatureOut = temperatureTable.getDoubleTopic("Shooter Top").publish();
+    BottomMotorTemperatureOut = temperatureTable.getDoubleTopic("Shooter Bottom").publish();
   }
 
   @Override

@@ -8,6 +8,7 @@ import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -138,9 +139,13 @@ public class RobotContainer {
   }
 
   public RobotContainer() {
+    // Register the Named Commands for PathPlannerLib
+    registerNamedCommands();
+
     autoChooser = AutoBuilder.buildAutoChooser();
 
     SmartDashboard.putData("Auto Chooser", autoChooser);
+
     configureBindings();
   }
 
@@ -150,5 +155,23 @@ public class RobotContainer {
 
   public void zeroPigeon() {
     drivetrain.getPigeon2().setYaw(0);
+  }
+
+  public void setClimberBrakes(boolean enabled) {
+    climbers.setBrakeMode(enabled);
+  }
+
+  private void registerNamedCommands() {
+    NamedCommands.registerCommand("ShooterOn", new SetShooterSpeed(shooter, .65));
+    NamedCommands.registerCommand("ShooterOff", new SetShooterSpeed(shooter, 0.0));
+    NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.5));
+    NamedCommands.registerCommand("ConveyorOff", new SetConveyorSpeed(conveyor, 0.0));
+    NamedCommands.registerCommand("IndexerOn", new SetIndexerSpeed(indexer, 1.0));
+    NamedCommands.registerCommand("IndexerOff", new SetIndexerSpeed(indexer, 0.0));
+    NamedCommands.registerCommand("IntakeDown", new SetIntakePosition(intakePivot, IntakePosition.DOWN));
+    NamedCommands.registerCommand("IntakeUp", new SetIntakePosition(intakePivot, IntakePosition.UP));
+    NamedCommands.registerCommand("IntakeOn", new SetIntakeSpeed(intake, 1.0));
+    NamedCommands.registerCommand("IntakeOff", new SetIntakeSpeed(intake, 0.0));
+    NamedCommands.registerCommand("AimSubwoofer", new SetShooterAngle(shooterAngle, Constants.LOCATION_SUBWOOFER));
   }
 }

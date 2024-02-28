@@ -13,9 +13,13 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.networktables.DoublePublisher;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.generated.TunerConstants;
 
@@ -38,6 +42,8 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
     private final SwerveRequest.ApplyChassisSpeeds autoRequest = new SwerveRequest.ApplyChassisSpeeds();
 
+    private DoublePublisher FLDT, FLST, FRDT, FRST, BLDT, BLST, BRDT, BRST;
+
     public CommandSwerveDrivetrain(SwerveDrivetrainConstants driveTrainConstants, double OdometryUpdateFrequency,
             SwerveModuleConstants... modules) {
         super(driveTrainConstants, OdometryUpdateFrequency, modules);
@@ -47,9 +53,9 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
         configurePathPlanner();
 
+        setUpMotorTempsNT();
+
         var result = getPigeon2().setYaw(0.0);
-
-
     }
 
     public CommandSwerveDrivetrain(SwerveDrivetrainConstants driveTrainConstants, SwerveModuleConstants... modules) {
@@ -58,6 +64,8 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
             startSimThread();
         }
         configurePathPlanner();
+
+        setUpMotorTempsNT();
         
 
         var result = getPigeon2().setYaw(0.0);
@@ -80,7 +88,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                         TunerConstants.kSpeedAt12VoltsMps,
                         driveBaseRadius,
                         new ReplanningConfig()),
-                () -> false, // Change this if the path needs to be flipped on red vs blue
+                () -> DriverStation.getAlliance().get() == Alliance.Red, // Change this if the path needs to be flipped on red vs blue
                 this); // Subsystem for requirements
         PathPlannerLogging.setLogActivePathCallback(
                 (activePath) -> {
@@ -92,6 +100,22 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                     Logger.recordOutput("Odometry/TrajectorySetpoint", targetPose);
                 });
     }
+
+
+    private void setUpMotorTempsNT() {
+        NetworkTableInstance nt = NetworkTableInstance.getDefault();
+        NetworkTable tempTable = nt.getTable("temperature");
+
+        FLDT = tempTable.getDoubleTopic("FL Drive").publish();
+        FLST = tempTable.getDoubleTopic("FL Steer").publish();
+        FRDT = tempTable.getDoubleTopic("FR Drive").publish();
+        FRST = tempTable.getDoubleTopic("FR Steer").publish();
+        BLDT = tempTable.getDoubleTopic("BL Drive").publish();
+        BLST = tempTable.getDoubleTopic("BL Steer").publish();
+        BRDT = tempTable.getDoubleTopic("BR Drive").publish();
+        BRST = tempTable.getDoubleTopic("BR Steer").publish();
+    }
+
 
     private void startSimThread() {
         m_lastSimTime = Utils.getCurrentTimeSeconds();
@@ -129,7 +153,18 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
             Logger.recordOutput("SwerveStates/Setpoints", getState().ModuleTargets);
             Logger.recordOutput("SwerveStates/Measured", getState().ModuleStates);
         }
-        
 
+        publishMotorTemps();
+    }
+
+    public void publishMotorTemps() {
+        FLDT.set(getModule(0).getDriveMotor().getDeviceTemp().getValueAsDouble());
+        FLST.set(getModule(0).getSteerMotor().getDeviceTemp().getValueAsDouble());
+        FRDT.set(getModule(1).getDriveMotor().getDeviceTemp().getValueAsDouble());
+        FRST.set(getModule(1).getSteerMotor().getDeviceTemp().getValueAsDouble());
+        BLDT.set(getModule(2).getDriveMotor().getDeviceTemp().getValueAsDouble());
+        BLST.set(getModule(2).getSteerMotor().getDeviceTemp().getValueAsDouble());
+        BRDT.set(getModule(3).getDriveMotor().getDeviceTemp().getValueAsDouble());
+        BRST.set(getModule(3).getSteerMotor().getDeviceTemp().getValueAsDouble());
     }
 }

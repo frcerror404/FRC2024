@@ -59,7 +59,7 @@ public class Constants {
     public static final double INTAKE_MOTIONMAGIC_CV = 30;
     public static final double INTAKE_CURRENT_LIMIT = 30;
     public static final double INTAKE_DOWN_POS = 8.05;
-    public static final double INTAKE_POS_DELTA = 7.25;
+    public static final double INTAKE_POS_DELTA = 7.85;
     public static final double INTAKE_UP_POS = .167;
     public static final double INTAKE_AMP_POS = 1.31;
     public static final double INTAKE_ROTOR_TO_MECHANISM_RATIO = 21.667;
@@ -87,7 +87,8 @@ public class Constants {
      * Climber Constants
      */
 
-    public static final double CLIMBER_CURRENT_LIMIT = 10.0;
+    public static final double CLIMBER_CURRENT_LIMIT = 30.0;
+    public static final double AUTO_DISABLE_BRAKE_TIME_SEC = 10.0;
 
 
     /**

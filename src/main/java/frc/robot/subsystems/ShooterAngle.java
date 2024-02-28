@@ -45,13 +45,15 @@ public class ShooterAngle extends SubsystemBase {
 
     NetworkTableInstance inst = NetworkTableInstance.getDefault();
     NetworkTable shooterTable = inst.getTable("shooter");
+    NetworkTable tempTable = inst.getTable("temperature");
     
     motorEncoderOut = shooterTable.getDoubleTopic("Angle Motor Encoder").publish();
-    motorTemperatureOut = shooterTable.getDoubleTopic("Angle Motor Temperature").publish();
     motorCurrentOut = shooterTable.getDoubleTopic("Angle Motor Current").publish();
     shooterAnglePositionOut = shooterTable.getDoubleTopic("Shooter Angle Position").publish();
     shooterAngleTargetOut = shooterTable.getDoubleTopic("Nice Angle Target").publish();
     shooterAngleTargetRawOut = shooterTable.getDoubleTopic("Raw Angle Target").publish();
+    
+    motorTemperatureOut = tempTable.getDoubleTopic("Shooter Angle").publish();
   }
 
   private void motorSetup() 

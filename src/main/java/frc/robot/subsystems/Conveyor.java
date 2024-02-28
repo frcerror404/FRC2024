@@ -7,6 +7,9 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import edu.wpi.first.networktables.DoublePublisher;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -23,12 +26,20 @@ public class Conveyor extends SubsystemBase {
   double bottom_max_sfm = (Constants.NEO550_MAX_SPEED / Constants.CONVEYOR_BOTTOM_GEAR_RATIO) * Constants.CONVEYOR_BOTTOM_WHEEL_DIA * (Math.PI / 12.0);
   double top_sfm_ratio = bottom_max_sfm / top_max_sfm;
   
-  
+  final DoublePublisher BottomConveyerTempOut;
+  final DoublePublisher TopConveyorTempOut;
   
   /** Creates a new Conveyor. */
   public Conveyor() {
     BottomConveyorMotor.setInverted(true);
     TopConveyorMotor.setInverted(true);
+ 
+     NetworkTableInstance inst =  NetworkTableInstance.getDefault();
+     NetworkTable tempTable = inst.getTable("temperature");
+    
+      TopConveyorTempOut = tempTable.getDoubleTopic("TopConveyerMotor").publish();
+     BottomConveyerTempOut = tempTable.getDoubleTopic("BottompConveyerMotor").publish();
+
   }
 
   public void SetConveyorSpeed(double speed) {
@@ -39,5 +50,7 @@ public class Conveyor extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    BottomConveyerTempOut.set(BottomConveyorMotor.getMotorTemperature());
+     TopConveyorTempOut.set(TopConveyorMotor.getMotorTemperature());
   }
 }

@@ -30,16 +30,22 @@ public class IntakePivot extends SubsystemBase {
   private double minIntakePosition = Constants.INTAKE_UP_POS;
 
   private final DoublePublisher ArmAngleOut, ArmAngleRawOut, ArmAngleRequestOut;
+  private final DoublePublisher RightPivotTempOut;
+  private final DoublePublisher LeftPivotTempOut;
 
   /** Creates a new Intake. */
   public IntakePivot() {
 
     NetworkTableInstance inst = NetworkTableInstance.getDefault();
     NetworkTable shooterTable = inst.getTable("intake pivot");
+    NetworkTable temperatureTable = inst.getTable("temperature");
     
     ArmAngleOut = shooterTable.getDoubleTopic("Intake Angle").publish();
     ArmAngleRawOut = shooterTable.getDoubleTopic("Intake Angle Raw").publish();
     ArmAngleRequestOut = shooterTable.getDoubleTopic("Intake Angle Request").publish();
+
+    RightPivotTempOut = temperatureTable.getDoubleTopic("Pivot R").publish();
+    LeftPivotTempOut = temperatureTable.getDoubleTopic("Pivot L").publish();
 
     TalonFXConfiguration fx_cfg = new TalonFXConfiguration();
 
@@ -104,5 +110,8 @@ public class IntakePivot extends SubsystemBase {
     ArmAngleOut.set(getIntakeAngle());
     ArmAngleRawOut.set(RightIntakePivot.getPosition().getValueAsDouble());
     ArmAngleRequestOut.set(requested_position_raw);
+
+    RightPivotTempOut.set(RightIntakePivot.getDeviceTemp().getValueAsDouble());
+    LeftPivotTempOut.set(LeftIntakePivot.getDeviceTemp().getValueAsDouble());
   }
 }

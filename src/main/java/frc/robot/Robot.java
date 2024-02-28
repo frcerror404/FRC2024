@@ -12,6 +12,7 @@ import org.littletonrobotics.junction.wpilog.WPILOGReader;
 import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 
 import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -21,6 +22,8 @@ public class Robot extends LoggedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+
+  private double disabledTime = 0;
 
   @Override
   public void robotInit() {
@@ -35,10 +38,19 @@ public class Robot extends LoggedRobot {
   }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    // Get the time since being disabled
+    disabledTime = Timer.getFPGATimestamp();
+  }
 
   @Override
-  public void disabledPeriodic() {}
+  public void disabledPeriodic() {
+    // If disabled for > 10 seconds (AUTO_DISABLE_BRAKE_TIME_SEC), disable the climber brakes
+    if((Timer.getFPGATimestamp() - disabledTime) > Constants.AUTO_DISABLE_BRAKE_TIME_SEC){
+      m_robotContainer.setClimberBrakes(false);
+      disabledTime = Double.MAX_VALUE;
+    }
+  }
 
   @Override
   public void disabledExit() {}
@@ -52,6 +64,8 @@ public class Robot extends LoggedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
+    
+    m_robotContainer.setClimberBrakes(true);
   }
 
   @Override
@@ -65,6 +79,8 @@ public class Robot extends LoggedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
+    m_robotContainer.setClimberBrakes(true);
   }
 
   @Override
