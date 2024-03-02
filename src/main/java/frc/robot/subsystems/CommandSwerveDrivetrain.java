@@ -88,7 +88,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                         TunerConstants.kSpeedAt12VoltsMps,
                         driveBaseRadius,
                         new ReplanningConfig()),
-                () -> DriverStation.getAlliance().get() == Alliance.Red, // Change this if the path needs to be flipped on red vs blue
+                () -> false,
                 this); // Subsystem for requirements
         PathPlannerLogging.setLogActivePathCallback(
                 (activePath) -> {

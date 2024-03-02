@@ -122,7 +122,7 @@ public class RobotContainer {
         .whileFalse(new SetIntakeSpeed(intake, 0.0));
 
     operator.x()
-        .whileTrue(new SetIntakeSpeed(intake, -0.8))
+        .whileTrue(new SetIntakeSpeed(intake, -0.6))
         .whileFalse(new SetIntakeSpeed(intake, 0.0));
 
     operator.b()
@@ -164,7 +164,7 @@ public class RobotContainer {
   private void registerNamedCommands() {
     NamedCommands.registerCommand("ShooterOn", new SetShooterSpeed(shooter, .65));
     NamedCommands.registerCommand("ShooterOff", new SetShooterSpeed(shooter, 0.0));
-    NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.5));
+    NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.35));
     NamedCommands.registerCommand("ConveyorOff", new SetConveyorSpeed(conveyor, 0.0));
     NamedCommands.registerCommand("IndexerOn", new SetIndexerSpeed(indexer, 1.0));
     NamedCommands.registerCommand("IndexerOff", new SetIndexerSpeed(indexer, 0.0));

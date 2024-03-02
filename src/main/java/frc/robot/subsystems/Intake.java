@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.controls.DutyCycleOut;
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
@@ -14,8 +16,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
-  CANSparkMax LeftIntakeMotor = new CANSparkMax(Constants.INTAKE_TOP_ID, MotorType.kBrushless);
-  CANSparkMax RightIntakeMotor = new CANSparkMax(Constants.INTAKE_BOTTOM_ID, MotorType.kBrushless);
+  TalonFX LeftIntakeMotor = new TalonFX(Constants.INTAKE_TOP_ID);
+  TalonFX RightIntakeMotor = new TalonFX(Constants.INTAKE_BOTTOM_ID);
 
 private final DoublePublisher LeftIntakeTempOut;
 private final DoublePublisher RightIntakeTempOut;
@@ -26,24 +28,24 @@ private final DoublePublisher RightIntakeTempOut;
     // Follow Inverted
     //RightIntakeMotor.follow(LeftIntakeMotor, true);
   
-  NetworkTableInstance inst =  NetworkTableInstance.getDefault();
-     NetworkTable tempTable = inst.getTable("temperature");
+    NetworkTableInstance inst =  NetworkTableInstance.getDefault();
+    NetworkTable tempTable = inst.getTable("temperature");
 
-     RightIntakeTempOut = tempTable.getDoubleTopic("IntakeR").publish();
-   LeftIntakeTempOut = tempTable.getDoubleTopic("IntakeL").publish();
+    RightIntakeTempOut = tempTable.getDoubleTopic("IntakeR").publish();
+    LeftIntakeTempOut = tempTable.getDoubleTopic("IntakeL").publish();
     
   }
 
   public void setIntakeSpeed(double speed) {
-    LeftIntakeMotor.set(speed);
-    RightIntakeMotor.set(speed);
+    LeftIntakeMotor.setControl(new DutyCycleOut(speed));
+    RightIntakeMotor.setControl(new DutyCycleOut(speed));
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-RightIntakeTempOut.set(RightIntakeMotor.getMotorTemperature());
-LeftIntakeTempOut.set(LeftIntakeMotor.getMotorTemperature());
+    RightIntakeTempOut.set(RightIntakeMotor.getDeviceTemp().getValueAsDouble());
+    LeftIntakeTempOut.set(LeftIntakeMotor.getDeviceTemp().getValueAsDouble());
     
   }
 }

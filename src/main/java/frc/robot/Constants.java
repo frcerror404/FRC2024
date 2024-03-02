@@ -61,7 +61,7 @@ public class Constants {
     public static final double INTAKE_DOWN_POS = 8.05;
     public static final double INTAKE_POS_DELTA = 7.85;
     public static final double INTAKE_UP_POS = .167;
-    public static final double INTAKE_AMP_POS = 1.31;
+    public static final double INTAKE_AMP_POS = 2.0;
     public static final double INTAKE_ROTOR_TO_MECHANISM_RATIO = 21.667;
 
     /*
@@ -79,7 +79,7 @@ public class Constants {
      */
     public static final double LOCATION_SUBWOOFER = 65.0;
     public static final double LOCATION_TRUSS = 88;
-    public static final double LOCATION_WING = 75.0;
+    public static final double LOCATION_WING = 79.0;
     public static final double LOCATION_TEST = 100.0;
     public static final double LOCATION_HOME = 70.0;
 
