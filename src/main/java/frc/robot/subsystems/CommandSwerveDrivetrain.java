@@ -5,8 +5,10 @@ import java.util.function.Supplier;
 import org.littletonrobotics.junction.Logger;
 
 import com.ctre.phoenix6.Utils;
+import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrain;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveDrivetrainConstants;
+import com.ctre.phoenix6.mechanisms.swerve.SwerveModule;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModuleConstants;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 
@@ -21,6 +23,7 @@ import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.generated.TunerConstants;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -53,7 +56,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
         configurePathPlanner();
 
-        setUpMotorTempsNT();
+        setUpMotors();
 
         var result = getPigeon2().setYaw(0.0);
     }
@@ -65,7 +68,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
         configurePathPlanner();
 
-        setUpMotorTempsNT();
+        setUpMotors();
         
 
         var result = getPigeon2().setYaw(0.0);
@@ -102,7 +105,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
     }
 
 
-    private void setUpMotorTempsNT() {
+    private void setUpMotors() {
         NetworkTableInstance nt = NetworkTableInstance.getDefault();
         NetworkTable tempTable = nt.getTable("temperature");
 
@@ -114,6 +117,21 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         BLST = tempTable.getDoubleTopic("BL Steer").publish();
         BRDT = tempTable.getDoubleTopic("BR Drive").publish();
         BRST = tempTable.getDoubleTopic("BR Steer").publish();
+
+        CurrentLimitsConfigs driveLimit = new CurrentLimitsConfigs();
+        driveLimit.withSupplyCurrentLimit(Constants.DRIVE_CURRENT_LIMIT);
+        driveLimit.withSupplyCurrentLimitEnable(true);
+
+        CurrentLimitsConfigs steerLimit = new CurrentLimitsConfigs();
+        steerLimit.withSupplyCurrentLimit(Constants.STEER_CURRENT_LIMIT);
+        steerLimit.withSupplyCurrentLimitEnable(true);
+
+        for(SwerveModule module : Modules) {
+            module.getDriveMotor().getConfigurator().apply(driveLimit);
+            module.getSteerMotor().getConfigurator().apply(steerLimit);
+        }
+
+
     }
 
 
