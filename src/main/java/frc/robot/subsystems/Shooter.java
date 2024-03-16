@@ -63,13 +63,14 @@ public class Shooter extends SubsystemBase {
 
     TopShooterMotor.getConfigurator().apply(motorA_cfg);
     
-    BottomShooterMotor.setControl(new Follower(TopShooterMotor.getDeviceID(), true));
+    //BottomShooterMotor.setControl(new Follower(TopShooterMotor.getDeviceID(), true));
   }
 
 
 
   public void setShooterSpeed(double speed) {
     motorVoltageRequest.withOutput(12.0 * speed);
-    TopShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed));
+    TopShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed * 1.15)); //Added 15% increase to top and 10% to bottom of shooter
+    BottomShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed * 1.1));
   }
 }

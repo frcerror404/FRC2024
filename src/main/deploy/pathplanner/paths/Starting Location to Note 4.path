@@ -1,0 +1,84 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.3251117925421525,
+        "y": 5.562271181092787
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.1513579690684357,
+        "y": 6.34954348136783
+      },
+      "isLocked": false,
+      "linkedName": "Starting Location"
+    },
+    {
+      "anchor": {
+        "x": 8.270256540513081,
+        "y": 7.4408120164025435
+      },
+      "prevControl": {
+        "x": 6.992963376566365,
+        "y": 7.421459089676079
+      },
+      "nextControl": {
+        "x": 8.784711707029448,
+        "y": 7.448606791652791
+      },
+      "isLocked": false,
+      "linkedName": "Note 4"
+    },
+    {
+      "anchor": {
+        "x": 5.510906101925305,
+        "y": 6.333953930867334
+      },
+      "prevControl": {
+        "x": 5.931823965438695,
+        "y": 6.497644211122541
+      },
+      "nextControl": {
+        "x": 3.6452324777325096,
+        "y": 5.60841418812569
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": {
+        "x": 4.7626076779014985,
+        "y": 5.936420393104689
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Field Shooting Location"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.5,
+    "maxAcceleration": 6.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

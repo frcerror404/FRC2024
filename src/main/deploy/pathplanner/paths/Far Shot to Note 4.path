@@ -3,81 +3,85 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3491521419562087,
-        "y": 6.089635003806385
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4810072975471116,
-        "y": 6.146879324861383
+        "x": 4.49758531939307,
+        "y": 6.365133031868325
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Field Shooting Location"
     },
     {
       "anchor": {
-        "x": 2.3445732483476367,
-        "y": 6.98
+        "x": 6.0721299199431575,
+        "y": 6.965330726137418
       },
       "prevControl": {
-        "x": 1.457868793815388,
-        "y": 6.98
+        "x": 5.581227714927772,
+        "y": 6.739184766523589
       },
       "nextControl": {
-        "x": 2.806341427699722,
-        "y": 6.98
+        "x": 6.765864917215225,
+        "y": 7.284916511397584
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.4571027201934155,
-        "y": 6.98
+        "x": 8.270256540513081,
+        "y": 7.4408120164025435
       },
       "prevControl": {
-        "x": 3.4571027201934155,
-        "y": 6.933971818649422
+        "x": 6.992963376566365,
+        "y": 7.421459089676079
       },
       "nextControl": {
-        "x": 3.4571027201934155,
-        "y": 7.017356971035611
+        "x": 8.784711707029452,
+        "y": 7.448606791652791
+      },
+      "isLocked": false,
+      "linkedName": "Note 4"
+    },
+    {
+      "anchor": {
+        "x": 6.266999301199357,
+        "y": 6.5833867388752685
+      },
+      "prevControl": {
+        "x": 6.7970440182162175,
+        "y": 6.8328195468832025
+      },
+      "nextControl": {
+        "x": 4.455746161683344,
+        "y": 5.731032320279499
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.3491521419562087,
-        "y": 6.089635003806385
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
       },
       "prevControl": {
-        "x": 1.3491521419527432,
-        "y": 6.089635003811157
+        "x": 4.762607677901501,
+        "y": 5.936420393104689
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Truss Shot"
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [
-    {
-      "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 2.15,
-      "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 4.0,
-        "maxAngularVelocity": 540.0,
-        "maxAngularAcceleration": 720.0
-      }
-    }
-  ],
+  "constraintZones": [],
   "eventMarkers": [
     {
-      "name": "Stop Intake",
-      "waypointRelativePos": 1.85,
+      "name": "New Event Marker",
+      "waypointRelativePos": 2.3,
       "command": {
         "type": "parallel",
         "data": {
@@ -85,13 +89,13 @@
             {
               "type": "named",
               "data": {
-                "name": "ConveyorOff"
+                "name": "IntakeOff"
               }
             },
             {
               "type": "named",
               "data": {
-                "name": "IntakeOff"
+                "name": "ConveyorOff"
               }
             },
             {
@@ -109,29 +113,6 @@
           ]
         }
       }
-    },
-    {
-      "name": "Shoot Note 2",
-      "waypointRelativePos": 2.8499999999999996,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "ConveyorOn"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IndexerOn"
-              }
-            }
-          ]
-        }
-      }
     }
   ],
   "globalConstraints": {
@@ -142,7 +123,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0,
+    "rotation": 0,
     "rotateFast": false
   },
   "reversed": false,

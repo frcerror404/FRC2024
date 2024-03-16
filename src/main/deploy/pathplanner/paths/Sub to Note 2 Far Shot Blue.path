@@ -3,61 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 15.203071775615735,
-        "y": 6.0193699845316955
+        "x": 1.3251117925421525,
+        "y": 5.562271181092787
       },
       "prevControl": null,
       "nextControl": {
-        "x": 14.980565881245884,
-        "y": 5.8788399459823175
+        "x": 1.4569669481330554,
+        "y": 5.619515502147785
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Starting Location"
     },
     {
       "anchor": {
-        "x": 14.289626525044774,
-        "y": 4.087081954477746
+        "x": 2.4851032868970147,
+        "y": 5.515804013063089
       },
       "prevControl": {
-        "x": 14.89859002542541,
-        "y": 4.087081954477746
+        "x": 1.598398832364766,
+        "y": 5.515804013063089
       },
       "nextControl": {
-        "x": 13.795545789909736,
-        "y": 4.087081954477746
+        "x": 2.9468714662491,
+        "y": 5.515804013063089
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 13.821193063213515,
-        "y": 4.087081954477746
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
       },
       "prevControl": {
-        "x": 13.821193063213515,
-        "y": 4.041053773127167
-      },
-      "nextControl": {
-        "x": 13.821193063213515,
-        "y": 4.124438925513357
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 15.203071775615735,
-        "y": 6.0193699845316955
-      },
-      "prevControl": {
-        "x": 15.203071775612269,
-        "y": 6.019369984536468
+        "x": 3.6713391428633217,
+        "y": 5.577860731598054
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Truss Shot"
     }
   ],
   "rotationTargets": [],
@@ -65,7 +49,7 @@
     {
       "name": "Slow for Note Pickup",
       "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 2.15,
+      "maxWaypointRelativePos": 1.6,
       "constraints": {
         "maxVelocity": 1.0,
         "maxAcceleration": 4.0,
@@ -77,7 +61,7 @@
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.9500000000000002,
+      "waypointRelativePos": 1.45,
       "command": {
         "type": "parallel",
         "data": {
@@ -112,7 +96,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.8499999999999996,
+      "waypointRelativePos": 1.95,
       "command": {
         "type": "parallel",
         "data": {
@@ -142,13 +126,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,
   "folder": null,
   "previewStartingState": {
-    "rotation": 179.225779835072,
+    "rotation": 0,
     "velocity": 0
   },
   "useDefaultConstraints": true

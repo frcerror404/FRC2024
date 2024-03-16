@@ -1,0 +1,43 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.3491521419562087,
+      "y": 5.5155025295912985
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Sub to Note 2 Far Shot Blue"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 4"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 5"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 6"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

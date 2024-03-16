@@ -3,61 +3,61 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 15.203071775615735,
-        "y": 6.0193699845316955
+        "x": 1.3095222420416566,
+        "y": 5.523297304841546
       },
       "prevControl": null,
       "nextControl": {
-        "x": 14.980565881245884,
-        "y": 5.8788399459823175
+        "x": 1.4413773976325595,
+        "y": 5.580541625896545
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 14.289626525044774,
-        "y": 4.087081954477746
+        "x": 4.123436107381169,
+        "y": 6.49764421112254
       },
       "prevControl": {
-        "x": 14.89859002542541,
-        "y": 4.087081954477746
+        "x": 3.2453711877956177,
+        "y": 6.621122090439257
       },
       "nextControl": {
-        "x": 13.795545789909736,
-        "y": 4.087081954477746
+        "x": 4.622301723397038,
+        "y": 6.42749123387031
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 13.821193063213515,
-        "y": 4.087081954477746
+        "x": 8.270256540513081,
+        "y": 7.4408120164025435
       },
       "prevControl": {
-        "x": 13.821193063213515,
-        "y": 4.041053773127167
+        "x": 8.270256540513081,
+        "y": 7.394783835051965
       },
       "nextControl": {
-        "x": 13.821193063213515,
-        "y": 4.124438925513357
+        "x": 8.270256540513081,
+        "y": 7.4781689874381545
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Note 4"
     },
     {
       "anchor": {
-        "x": 15.203071775615735,
-        "y": 6.0193699845316955
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
       },
       "prevControl": {
-        "x": 15.203071775612269,
-        "y": 6.019369984536468
+        "x": 3.671339142863322,
+        "y": 5.577860731598054
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Field Shooting Location"
     }
   ],
   "rotationTargets": [],
@@ -77,7 +77,7 @@
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.9500000000000002,
+      "waypointRelativePos": 1.85,
       "command": {
         "type": "parallel",
         "data": {
@@ -142,13 +142,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,
   "folder": null,
   "previewStartingState": {
-    "rotation": 179.225779835072,
+    "rotation": 0,
     "velocity": 0
   },
   "useDefaultConstraints": true

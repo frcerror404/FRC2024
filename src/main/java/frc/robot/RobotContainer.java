@@ -73,9 +73,9 @@ public class RobotContainer {
             .withRotationalRate(-driver.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
         ));
 
-    driver.a().whileTrue(drivetrain.applyRequest(() -> brake));
-    driver.b().whileTrue(drivetrain
-        .applyRequest(() -> point.withModuleDirection(new Rotation2d(-driver.getLeftY(), -driver.getLeftX()))));
+    // driver.a().whileTrue(drivetrain.applyRequest(() -> brake));
+    // driver.b().whileTrue(drivetrain
+    //     .applyRequest(() -> point.withModuleDirection(new Rotation2d(-driver.getLeftY(), -driver.getLeftX()))));
 
     // reset the field-centric heading on left bumper press
     driver.start().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
@@ -86,12 +86,18 @@ public class RobotContainer {
     drivetrain.registerTelemetry(logger::telemeterize);
 
 
+    //Added a right bumper shot for the far shot.
+    driver.rightBumper()
+        .whileTrue(new SetShooterSpeed(shooter, 0.55)) //Changed to .55 from .45
+        .whileFalse(new SetShooterSpeed(shooter, 0));
+    
+    // Kept the shot the same
     driver.rightTrigger(0.5)
-        .whileTrue(new SetShooterSpeed(shooter, 0.65))
+        .whileTrue(new SetShooterSpeed(shooter, 0.45))
         .whileFalse(new SetShooterSpeed(shooter, 0));
 
     driver.leftTrigger(0.5)
-        .whileTrue(new SetShooterSpeed(shooter, 0.21))
+        .whileTrue(new SetShooterSpeed(shooter, 0.17)) //Set speed to .17 from .21
         .whileFalse(new SetShooterSpeed(shooter, 0));
 
     driver.a()

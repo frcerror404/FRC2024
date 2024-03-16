@@ -1,0 +1,100 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.49758531939307,
+        "y": 6.365133031868325
+      },
+      "isLocked": false,
+      "linkedName": "Field Shooting Location"
+    },
+    {
+      "anchor": {
+        "x": 5.830491887185471,
+        "y": 6.185853201112622
+      },
+      "prevControl": {
+        "x": 5.167935990914395,
+        "y": 6.271595728865351
+      },
+      "nextControl": {
+        "x": 6.294568253939514,
+        "y": 6.125796259532687
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.27805131576333,
+        "y": 5.780524888099729
+      },
+      "prevControl": {
+        "x": 7.000758151816614,
+        "y": 5.761171961373264
+      },
+      "nextControl": {
+        "x": 8.792506482279697,
+        "y": 5.788319663349976
+      },
+      "isLocked": false,
+      "linkedName": "Note 5"
+    },
+    {
+      "anchor": {
+        "x": 5.830491887185471,
+        "y": 6.185853201112622
+      },
+      "prevControl": {
+        "x": 6.578790311209275,
+        "y": 6.427491233870308
+      },
+      "nextControl": {
+        "x": 3.9255622952614,
+        "y": 5.570719687053811
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": {
+        "x": 4.762607677901501,
+        "y": 5.936420393104689
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Truss Shot"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.5,
+    "maxAcceleration": 6.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

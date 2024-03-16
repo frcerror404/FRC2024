@@ -43,8 +43,8 @@ public class Constants {
     public static final double ANGLE_PID_kD = 0.0;
     public static final double ANGLE_MOTIONMAGIC_ACC = 1.5;
     public static final double ANGLE_MOTIONMAGIC_CV = 6.0;
-    public static final double ANGLE_MOTOR_CURRENT_LIMIT = 20.0; // Amps
-    public static final double ANGLE_MOTOR_CURRENT_LIMIT_HOME = 5.0; // Amps
+    public static final double ANGLE_MOTOR_CURRENT_LIMIT = 3.0; // Amps
+    public static final double ANGLE_MOTOR_CURRENT_LIMIT_HOME = 3.0; // Amps
 
 
     /**
@@ -93,7 +93,7 @@ public class Constants {
     /**
      * Drive Current Limits
      */
-    public static final double DRIVE_CURRENT_LIMIT = 80.0;
+    public static final double DRIVE_CURRENT_LIMIT = 65.0;
     public static final double STEER_CURRENT_LIMIT = 30.0;
 
 

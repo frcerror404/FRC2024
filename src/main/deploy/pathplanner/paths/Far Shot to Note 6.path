@@ -1,0 +1,100 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.591122622396046,
+        "y": 5.1335585423291485
+      },
+      "isLocked": false,
+      "linkedName": "Field Shooting Location"
+    },
+    {
+      "anchor": {
+        "x": 5.713570258431751,
+        "y": 4.322901916303361
+      },
+      "prevControl": {
+        "x": 4.94496412109391,
+        "y": 4.587644030275284
+      },
+      "nextControl": {
+        "x": 6.415100030954068,
+        "y": 4.081263883545675
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.285846091013578,
+        "y": 4.1046482092964185
+      },
+      "prevControl": {
+        "x": 7.008552927066862,
+        "y": 4.085295282569954
+      },
+      "nextControl": {
+        "x": 8.800301257529945,
+        "y": 4.112442984546666
+      },
+      "isLocked": false,
+      "linkedName": "Note 6"
+    },
+    {
+      "anchor": {
+        "x": 6.204641099197373,
+        "y": 4.494386971808817
+      },
+      "prevControl": {
+        "x": 7.2569357579808464,
+        "y": 4.432028769806832
+      },
+      "nextControl": {
+        "x": 4.2063609639293755,
+        "y": 4.612803572417293
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": {
+        "x": 4.676865150148774,
+        "y": 5.336222698835596
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Truss Shot"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.5,
+    "maxAcceleration": 6.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": 0,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
