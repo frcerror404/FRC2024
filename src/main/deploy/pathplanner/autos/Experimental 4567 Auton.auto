@@ -1,0 +1,43 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.3251117925421525,
+      "y": 5.562271181092787
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Starting Location to Note 4"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 5"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 6"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Truss Shot to Note 7"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

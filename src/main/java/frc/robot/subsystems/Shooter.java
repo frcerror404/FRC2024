@@ -6,10 +6,12 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
+import com.ctre.phoenix6.controls.MotionMagicVelocityVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 
+import edu.wpi.first.networktables.BooleanPublisher;
 import edu.wpi.first.networktables.DoublePublisher;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
@@ -27,10 +29,17 @@ public class Shooter extends SubsystemBase {
 
   private final DoublePublisher TopWheelRPMOut;
   private final DoublePublisher BottomWheelRPMOut;
-  private final DoublePublisher TargetRPMOut;
+  private final DoublePublisher TopWheelRPMTargetOut;
+  private final DoublePublisher BottomWheelRPMTargetOut;
+  private final BooleanPublisher TopWheelAtTargetRPMOut;
+  private final BooleanPublisher BottomWheelAtTargetRPMOut;
+  private final DoublePublisher BottomWheelCurrentOut;
+  private final DoublePublisher TopWheelCurrentOut;
   //private final DoublePublisher RPMErrorOut;
   private final DoublePublisher TopMotorTemperatureOut;
   private final DoublePublisher BottomMotorTemperatureOut;
+
+  private double TopRPMTarget = 0, BottomRPMTarget = 0;
 
 
 
@@ -43,7 +52,17 @@ public class Shooter extends SubsystemBase {
     
     TopWheelRPMOut = shooterTable.getDoubleTopic("Top Wheel RPM").publish();
     BottomWheelRPMOut = shooterTable.getDoubleTopic("Bottom Wheel RPM").publish();
-    TargetRPMOut = shooterTable.getDoubleTopic("Target RPM").publish();
+    
+    TopWheelRPMTargetOut = shooterTable.getDoubleTopic("Top Wheel Target RPM").publish();
+    BottomWheelRPMTargetOut = shooterTable.getDoubleTopic("Bottom Wheel Target RPM").publish();
+    TopWheelAtTargetRPMOut = shooterTable.getBooleanTopic("Top Wheel At Speed").publish();
+    BottomWheelAtTargetRPMOut = shooterTable.getBooleanTopic("Bottom Wheel At Speed").publish();
+
+    BottomWheelCurrentOut = shooterTable.getDoubleTopic("Bottom Current").publish();
+    TopWheelCurrentOut = shooterTable.getDoubleTopic("Top Current").publish();
+
+
+
     TopMotorTemperatureOut = temperatureTable.getDoubleTopic("Shooter Top").publish();
     BottomMotorTemperatureOut = temperatureTable.getDoubleTopic("Shooter Bottom").publish();
   }
@@ -51,17 +70,42 @@ public class Shooter extends SubsystemBase {
   @Override
   public void periodic() {
     TopWheelRPMOut.set(TopShooterMotor.getRotorVelocity().getValueAsDouble() * 60.0f);
-    BottomWheelRPMOut.set(BottomShooterMotor.getRotorVelocity().getValueAsDouble() * 60.0f);
-    TargetRPMOut.set(targetRPM);
     TopMotorTemperatureOut.set(TopShooterMotor.getDeviceTemp().getValueAsDouble());
+    TopWheelRPMTargetOut.set(TopRPMTarget);
+    TopWheelAtTargetRPMOut.set(isTopWheelAtTargetVelocity());
+    TopWheelCurrentOut.set(TopShooterMotor.getSupplyCurrent().getValueAsDouble());
+    
+    BottomWheelRPMOut.set(BottomShooterMotor.getRotorVelocity().getValueAsDouble() * 60.0f);
     BottomMotorTemperatureOut.set(BottomShooterMotor.getDeviceTemp().getValueAsDouble());
+    BottomWheelRPMTargetOut.set(BottomRPMTarget);
+    BottomWheelAtTargetRPMOut.set(isBottomWheelAtTargetVelocity());
+    BottomWheelCurrentOut.set(BottomShooterMotor.getSupplyCurrent().getValueAsDouble());
+
   }
 
   private void motorSetup() {
-    TalonFXConfiguration motorA_cfg = new TalonFXConfiguration();
-    motorA_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    //Top Moter Setup
+    TalonFXConfiguration topMotor_cfg = new TalonFXConfiguration();
+    topMotor_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    topMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
+    topMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
+    topMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
+    topMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
+    topMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
 
-    TopShooterMotor.getConfigurator().apply(motorA_cfg);
+
+    TopShooterMotor.getConfigurator().apply(topMotor_cfg);
+
+    //Bottom Moter Setup
+    TalonFXConfiguration bottomMotor_cfg = new TalonFXConfiguration();
+    bottomMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
+    bottomMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
+    bottomMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
+    bottomMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
+    bottomMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
+
+
+    BottomShooterMotor.getConfigurator().apply(bottomMotor_cfg);
     
     //BottomShooterMotor.setControl(new Follower(TopShooterMotor.getDeviceID(), true));
   }
@@ -72,5 +116,47 @@ public class Shooter extends SubsystemBase {
     motorVoltageRequest.withOutput(12.0 * speed);
     TopShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed * 1.15)); //Added 15% increase to top and 10% to bottom of shooter
     BottomShooterMotor.setControl(motorVoltageRequest.withOutput(12.0 * speed * 1.1));
+  }
+
+  public void setShooterRPM(double rpm) {
+    setShooterRPM(rpm, rpm);
+  }
+
+  public void setShooterRPM(double topRPM, double bottomRPM) {
+    TopRPMTarget = topRPM;
+    BottomRPMTarget = bottomRPM;
+
+    double topRPS = topRPM / 60.0;
+    double bottomRPS = bottomRPM / 60.0;
+    
+    TopShooterMotor.setControl(new MotionMagicVelocityVoltage(topRPS));
+    BottomShooterMotor.setControl(new MotionMagicVelocityVoltage(bottomRPS));
+  }
+
+  public double getTopMotorRPM() {
+    return TopShooterMotor.getVelocity().getValueAsDouble() * 60.0;
+  }
+
+  public double getBottomMotorRPM() {
+    return BottomShooterMotor.getVelocity().getValueAsDouble() * 60.0;
+  }
+
+
+  public boolean isBottomWheelAtTargetVelocity() {
+    return isBottomWheelAtTargetVelocity(Constants.SHOOTER_RPM_TOLERANCE_PERCENT);
+  }
+
+  public boolean isBottomWheelAtTargetVelocity(double tolerancePercentage) {
+    double actualPercent = Math.abs(getBottomMotorRPM() - BottomRPMTarget) / (BottomRPMTarget + .001);
+    return (actualPercent < tolerancePercentage) || getBottomMotorRPM() == Double.NaN;
+  }
+
+  public boolean isTopWheelAtTargetVelocity() {
+    return isTopWheelAtTargetVelocity(Constants.SHOOTER_RPM_TOLERANCE_PERCENT);
+  }
+
+  public boolean isTopWheelAtTargetVelocity(double tolerancePercentage) {
+    double actualPercent = Math.abs(getTopMotorRPM() - TopRPMTarget) / (TopRPMTarget + .001);
+    return (actualPercent < tolerancePercentage) || getTopMotorRPM() == Double.NaN;
   }
 }

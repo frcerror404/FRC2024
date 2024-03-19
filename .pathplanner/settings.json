@@ -3,13 +3,14 @@
   "robotLength": 0.832,
   "holonomicMode": true,
   "pathFolders": [
-    "New Folder"
+    "Blue",
+    "Red"
   ],
   "autoFolders": [
     "Working Comp"
   ],
   "defaultMaxVel": 4.5,
-  "defaultMaxAccel": 6.0,
+  "defaultMaxAccel": 4.5,
   "defaultMaxAngVel": 540.0,
   "defaultMaxAngAccel": 720.0,
   "maxModuleSpeed": 4.7

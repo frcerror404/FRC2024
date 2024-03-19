@@ -24,6 +24,7 @@ import frc.robot.commands.IntakeAndConveyor;
 import frc.robot.commands.SetClimberSpeed;
 import frc.robot.commands.SetConveyorSpeed;
 import frc.robot.commands.SetShooterAngle;
+import frc.robot.commands.SetShooterRPM;
 import frc.robot.commands.SetShooterSpeed;
 import frc.robot.enums.IntakeConveyorSpeed;
 import frc.robot.enums.IntakePosition;
@@ -88,17 +89,17 @@ public class RobotContainer {
 
     //Added a right bumper shot for the far shot.
     driver.rightBumper()
-        .whileTrue(new SetShooterSpeed(shooter, 0.55)) //Changed to .55 from .45
+        .whileTrue(new SetShooterSpeed(shooter, 0.55))
         .whileFalse(new SetShooterSpeed(shooter, 0));
     
     // Kept the shot the same
     driver.rightTrigger(0.5)
-        .whileTrue(new SetShooterSpeed(shooter, 0.45))
-        .whileFalse(new SetShooterSpeed(shooter, 0));
+        .whileTrue(new SetShooterRPM(shooter, Constants.SUBWOOFER_TOP_RPM, Constants.SUBWOOFER_BOTTOM_RPM))
+        .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.leftTrigger(0.5)
-        .whileTrue(new SetShooterSpeed(shooter, 0.17)) //Set speed to .17 from .21
-        .whileFalse(new SetShooterSpeed(shooter, 0));
+        .whileTrue(new SetShooterRPM(shooter, Constants.AMP_TOP_RPM, Constants.AMP_BOTTOM_RPM))
+        .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.a()
         .whileTrue(new SetIndexerSpeed(indexer, 1.0))
@@ -168,8 +169,8 @@ public class RobotContainer {
   }
 
   private void registerNamedCommands() {
-    NamedCommands.registerCommand("ShooterOn", new SetShooterSpeed(shooter, .65));
-    NamedCommands.registerCommand("ShooterOff", new SetShooterSpeed(shooter, 0.0));
+    NamedCommands.registerCommand("ShooterOn", new SetShooterRPM(shooter, Constants.SUBWOOFER_TOP_RPM, Constants.SUBWOOFER_BOTTOM_RPM));
+    NamedCommands.registerCommand("ShooterOff", new SetShooterRPM(shooter, 0, 0));
     NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.35));
     NamedCommands.registerCommand("ConveyorOff", new SetConveyorSpeed(conveyor, 0.0));
     NamedCommands.registerCommand("IndexerOn", new SetIndexerSpeed(indexer, 1.0));

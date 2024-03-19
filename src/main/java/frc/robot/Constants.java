@@ -30,6 +30,12 @@ public class Constants {
     public static final int CLIMBER_LEFT_ID = 54;
 
 
+    /**
+     * Misc Channel Configs
+     */
+
+    public static final int CONVEYOR_NOTE_SENSOR_CHANNEL = 0;
+
     
 
     /**
@@ -43,7 +49,7 @@ public class Constants {
     public static final double ANGLE_PID_kD = 0.0;
     public static final double ANGLE_MOTIONMAGIC_ACC = 1.5;
     public static final double ANGLE_MOTIONMAGIC_CV = 6.0;
-    public static final double ANGLE_MOTOR_CURRENT_LIMIT = 3.0; // Amps
+    public static final double ANGLE_MOTOR_CURRENT_LIMIT = 20.0; // Amps
     public static final double ANGLE_MOTOR_CURRENT_LIMIT_HOME = 3.0; // Amps
 
 
@@ -63,6 +69,22 @@ public class Constants {
     public static final double INTAKE_UP_POS = .167;
     public static final double INTAKE_AMP_POS = 2.0;
     public static final double INTAKE_ROTOR_TO_MECHANISM_RATIO = 21.667;
+
+
+    /**
+     * Shooter Constants
+     */
+    public static final double SHOOTER_kP = .5;
+    public static final double SHOOTER_kI = 3.5;
+    public static final double SHOOTER_kA = 1600;
+    public static final double SHOOTER_RPM_TOLERANCE_PERCENT = .05; // 5%
+    public static final double SHOOTER_CURRENT_LIMIT = 40.0;
+
+    public static final double SUBWOOFER_TOP_RPM = 2850;
+    public static final double SUBWOOFER_BOTTOM_RPM = 2800;
+
+    public static final double AMP_TOP_RPM = 650;
+    public static final double AMP_BOTTOM_RPM = 500;
 
     /*
      * Conveyor Constants

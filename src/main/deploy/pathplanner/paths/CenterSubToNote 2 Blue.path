@@ -16,32 +16,32 @@
     },
     {
       "anchor": {
-        "x": 2.5878653830823217,
-        "y": 6.333953930867334
+        "x": 2.4851032868970147,
+        "y": 5.515804013063089
       },
       "prevControl": {
-        "x": 1.7359958376247702,
-        "y": 6.08785828440182
+        "x": 1.598398832364766,
+        "y": 5.515804013063089
       },
       "nextControl": {
-        "x": 2.93863026934348,
-        "y": 6.435286009120556
+        "x": 2.9468714662491,
+        "y": 5.515804013063089
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.000988471345463,
-        "y": 7.401838140151304
+        "x": 3.30486184510172,
+        "y": 5.515804013063089
       },
       "prevControl": {
-        "x": 3.000988471345463,
-        "y": 7.355809958800725
+        "x": 3.30486184510172,
+        "y": 5.469775831712511
       },
       "nextControl": {
-        "x": 3.000988471345463,
-        "y": 7.439195111186915
+        "x": 3.30486184510172,
+        "y": 5.5531609840987
       },
       "isLocked": false,
       "linkedName": null
@@ -52,7 +52,7 @@
         "y": 5.562271181092787
       },
       "prevControl": {
-        "x": 1.3251117925386868,
+        "x": 1.325111792538687,
         "y": 5.562271181097559
       },
       "nextControl": null,
@@ -61,23 +61,11 @@
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [
-    {
-      "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 2.15,
-      "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 4.0,
-        "maxAngularVelocity": 540.0,
-        "maxAngularAcceleration": 720.0
-      }
-    }
-  ],
+  "constraintZones": [],
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.9500000000000002,
+      "waypointRelativePos": 1.85,
       "command": {
         "type": "parallel",
         "data": {
@@ -136,7 +124,7 @@
   ],
   "globalConstraints": {
     "maxVelocity": 4.5,
-    "maxAcceleration": 6.0,
+    "maxAcceleration": 4.5,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
@@ -146,7 +134,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Red",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0

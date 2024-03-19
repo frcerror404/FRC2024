@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 15.214782612161516,
-      "y": 6.042791657623258
+      "x": 1.3251117925421525,
+      "y": 5.562271181092787
     },
-    "rotation": 180.0
+    "rotation": 0
   },
   "command": {
     "type": "sequential",
@@ -14,7 +14,7 @@
         {
           "type": "named",
           "data": {
-            "name": "IntakeUp"
+            "name": "IntakeDown"
           }
         },
         {
@@ -94,7 +94,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "New SubToNote 1 Red"
+            "pathName": "CenterSubToNote 2 Blue"
           }
         },
         {
@@ -131,7 +131,44 @@
         {
           "type": "path",
           "data": {
-            "pathName": "New SubToNote 2 Red"
+            "pathName": "CenterSubToNote 1 Blue"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CenterSubToNote 3 Blue"
           }
         },
         {
@@ -162,6 +199,6 @@
       ]
     }
   },
-  "folder": "Working Comp",
+  "folder": null,
   "choreoAuto": false
 }

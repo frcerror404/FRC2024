@@ -3,64 +3,70 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 15.214782612161516,
-        "y": 6.042791657623258
+        "x": 15.203071775615735,
+        "y": 5.597779868883561
       },
       "prevControl": null,
       "nextControl": {
-        "x": 15.072314136683266,
-        "y": 6.042791657623258
+        "x": 14.68535657146715,
+        "y": 5.718166686097745
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Red Start"
     },
     {
       "anchor": {
-        "x": 14.043698957583363,
-        "y": 6.956236908194216
+        "x": 14.038390225696569,
+        "y": 5.81170398910072
       },
       "prevControl": {
-        "x": 14.930262070845169,
-        "y": 6.940405424028829
+        "x": 14.537255841712438,
+        "y": 5.65580848409576
       },
       "nextControl": {
-        "x": 13.3878921110196,
-        "y": 6.9679477447399965
+        "x": 13.566800056477344,
+        "y": 5.959075916981728
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 13.341048764836474,
-        "y": 6.956236908194216
+        "x": 13.742188766187148,
+        "y": 7.167994882643865
       },
       "prevControl": {
-        "x": 13.341048764836474,
-        "y": 6.910208726843638
+        "x": 13.742188766187148,
+        "y": 7.121966701293286
       },
       "nextControl": {
-        "x": 13.341048764836474,
-        "y": 6.993593879229827
+        "x": 13.742188766187148,
+        "y": 7.205351853679476
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 15.214782612161516,
-        "y": 6.042791657623258
+        "x": 15.203071775615735,
+        "y": 5.597779868883561
       },
       "prevControl": {
-        "x": 15.21478261215805,
-        "y": 6.0427916576280305
+        "x": 15.203071775612269,
+        "y": 5.597779868888333
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Red Start"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.25,
+      "rotationDegrees": 90.0,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [
     {
       "name": "Slow for Note Pickup",
@@ -77,7 +83,7 @@
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.85,
+      "waypointRelativePos": 1.9500000000000002,
       "command": {
         "type": "parallel",
         "data": {
@@ -136,19 +142,19 @@
   ],
   "globalConstraints": {
     "maxVelocity": 4.5,
-    "maxAcceleration": 6.0,
+    "maxAcceleration": 4.5,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.5787150958314,
+    "rotation": 180.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Red",
   "previewStartingState": {
-    "rotation": -179.19307054489767,
+    "rotation": 179.225779835072,
     "velocity": 0
   },
   "useDefaultConstraints": true

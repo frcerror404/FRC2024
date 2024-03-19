@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.497585319393069,
-        "y": 6.365133031868325
+        "x": 4.4897905441428225,
+        "y": 5.601245057344025
       },
       "isLocked": false,
       "linkedName": "Field Shooting Location"
     },
     {
       "anchor": {
-        "x": 6.111103796194398,
-        "y": 3.9175736032904673
+        "x": 5.6512120564297685,
+        "y": 4.042290007294435
       },
       "prevControl": {
-        "x": 5.313371292545697,
-        "y": 4.073991741260801
+        "x": 4.895067496406365,
+        "y": 4.340768123093147
       },
       "nextControl": {
-        "x": 6.508637333957044,
-        "y": 3.839625850787988
+        "x": 5.94741351593919,
+        "y": 3.9253683785407154
       },
       "isLocked": false,
       "linkedName": null
@@ -49,15 +49,15 @@
     {
       "anchor": {
         "x": 6.111103796194398,
-        "y": 3.9175736032904673
+        "y": 3.7928571992865003
       },
       "prevControl": {
-        "x": 6.867196995468449,
-        "y": 3.597987818030302
+        "x": 6.734685816214234,
+        "y": 3.340760234772119
       },
       "nextControl": {
-        "x": 4.267262473679283,
-        "y": 4.696929213838093
+        "x": 4.490437187716967,
+        "y": 4.96784049043264
       },
       "isLocked": false,
       "linkedName": null
@@ -68,8 +68,8 @@
         "y": 5.577860731593282
       },
       "prevControl": {
-        "x": 4.762607677901501,
-        "y": 5.936420393104689
+        "x": 4.513174869893566,
+        "y": 4.564539949061047
       },
       "nextControl": null,
       "isLocked": false,
@@ -81,7 +81,7 @@
   "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 4.5,
-    "maxAcceleration": 6.0,
+    "maxAcceleration": 4.5,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
@@ -91,7 +91,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Blue",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0

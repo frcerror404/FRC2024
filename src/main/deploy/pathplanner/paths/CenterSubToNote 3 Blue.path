@@ -16,52 +16,56 @@
     },
     {
       "anchor": {
-        "x": 2.4851032868970147,
-        "y": 5.515804013063089
+        "x": 2.098645680886225,
+        "y": 3.9699735890199306
       },
       "prevControl": {
-        "x": 1.598398832364766,
-        "y": 5.515804013063089
+        "x": 1.2119412263539764,
+        "y": 3.9699735890199306
       },
       "nextControl": {
-        "x": 2.9468714662491,
-        "y": 5.515804013063089
+        "x": 2.5604138602383104,
+        "y": 3.9699735890199306
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.6713391428667874,
-        "y": 5.577860731593282
+        "x": 2.7661633639957715,
+        "y": 3.9699735890199306
       },
       "prevControl": {
-        "x": 3.6713391428633217,
-        "y": 5.577860731598054
+        "x": 2.7661633639957715,
+        "y": 3.923945407669352
+      },
+      "nextControl": {
+        "x": 2.7661633639957715,
+        "y": 4.007330560055542
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.3251117925421525,
+        "y": 5.562271181092787
+      },
+      "prevControl": {
+        "x": 1.3251117925386868,
+        "y": 5.562271181097559
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Truss Shot"
+      "linkedName": "Starting Location"
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [
-    {
-      "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 1.6,
-      "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 4.0,
-        "maxAngularVelocity": 540.0,
-        "maxAngularAcceleration": 720.0
-      }
-    }
-  ],
+  "constraintZones": [],
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.45,
+      "waypointRelativePos": 2.45,
       "command": {
         "type": "parallel",
         "data": {
@@ -96,7 +100,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 1.95,
+      "waypointRelativePos": 2.8499999999999996,
       "command": {
         "type": "parallel",
         "data": {

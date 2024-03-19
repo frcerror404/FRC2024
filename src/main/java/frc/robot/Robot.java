@@ -109,7 +109,7 @@ public class Robot extends LoggedRobot {
     Logger.recordMetadata("FRC2024", "7226 2024 Competition Robot"); // Set a metadata value
 
     if (isReal()) {
-      //Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
+      Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
       Logger.addDataReceiver(new NT4Publisher()); // Publish data to NetworkTables
       var pd = new PowerDistribution(1, ModuleType.kRev); // Enables power distribution logging
       pd.setSwitchableChannel(true);
