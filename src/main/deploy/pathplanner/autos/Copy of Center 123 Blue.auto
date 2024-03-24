@@ -14,7 +14,7 @@
         {
           "type": "named",
           "data": {
-            "name": "IntakeUp"
+            "name": "IntakeDown"
           }
         },
         {
@@ -61,6 +61,12 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Sub to Note 2 Far Shot Blue"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -94,7 +100,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote Blue"
+            "pathName": "Far Shot to Note 4"
           }
         },
         {
@@ -131,7 +137,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote 2 Blue"
+            "pathName": "Far Shot to Note 5"
           }
         },
         {
@@ -168,7 +174,38 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote 3 Blue"
+            "pathName": "CenterSubToNote 1 Blue"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CenterSubToNote 3 Blue"
           }
         },
         {

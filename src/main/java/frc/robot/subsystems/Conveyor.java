@@ -64,6 +64,6 @@ public class Conveyor extends SubsystemBase {
 
   public boolean isNoteInConveyor() {
     // Inverted logic for some reason
-    return NoteSensor.get() == false;
+    return !NoteSensor.get();
   }
 }

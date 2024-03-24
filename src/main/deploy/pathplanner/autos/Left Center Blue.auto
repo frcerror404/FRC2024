@@ -94,7 +94,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote Blue"
+            "pathName": "Far Note 1 Blue"
           }
         },
         {
@@ -131,7 +131,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote 2 Blue"
+            "pathName": "Far Shot to Note 4"
           }
         },
         {
@@ -168,7 +168,38 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote 3 Blue"
+            "pathName": "Far Shot to Note 5"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Far Shot to Note 6"
           }
         },
         {

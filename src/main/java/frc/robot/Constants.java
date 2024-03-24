@@ -8,7 +8,7 @@ public class Constants {
 
     // Shooter
     public static final int SHOOTER_TOP_ID = 50;
-    public static final int SHOOTER_BOTTOM_ID = 51;
+    public static final int SHOOTER_BOTTOM_ID = 54;
     
     // Shooter Tilt/Angle
     public static final int ANGLE_MOTOR_ID = 52;
@@ -27,23 +27,23 @@ public class Constants {
 
     // Climbers
     public static final int CLIMBER_RIGHT_ID = 55;
-    public static final int CLIMBER_LEFT_ID = 54;
+    public static final int CLIMBER_LEFT_ID = 51;
 
 
     /**
      * Misc Channel Configs
      */
 
-    public static final int CONVEYOR_NOTE_SENSOR_CHANNEL = 0;
+    public static final int CONVEYOR_NOTE_SENSOR_CHANNEL = 9;
 
     
 
     /**
      * Constants for Angle Motor
      */
-    public static final double SHOOTER_ANGLE_ZERO_OFFSET = 65.0;
+    public static final double SHOOTER_ANGLE_ZERO_OFFSET = 72.0;
     public static final double ANGLE_GEAR_RATIO = (36.0 / 12.0) * (79.0 / 10.0);
-    public static final double ANGLE_ENCODER_OFFSET = 0.448730 ;
+    public static final double ANGLE_ENCODER_OFFSET = 0.289795 ;
     public static final double ANGLE_PID_kP = 130.0;
     public static final double ANGLE_PID_kI = 60.0;
     public static final double ANGLE_PID_kD = 0.0;
@@ -81,7 +81,7 @@ public class Constants {
     public static final double SHOOTER_CURRENT_LIMIT = 40.0;
 
     public static final double SUBWOOFER_TOP_RPM = 2850;
-    public static final double SUBWOOFER_BOTTOM_RPM = 2800;
+    public static final double SUBWOOFER_BOTTOM_RPM = 2850;
 
     public static final double AMP_TOP_RPM = 650;
     public static final double AMP_BOTTOM_RPM = 500;

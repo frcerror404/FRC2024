@@ -20,7 +20,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.SetIndexerSpeed;
 import frc.robot.commands.SetIntakePosition;
 import frc.robot.commands.SetIntakeSpeed;
+import frc.robot.commands.IndexerAndConveyor;
 import frc.robot.commands.IntakeAndConveyor;
+import frc.robot.commands.IntakeUntilNoteDetected;
 import frc.robot.commands.SetClimberSpeed;
 import frc.robot.commands.SetConveyorSpeed;
 import frc.robot.commands.SetShooterAngle;
@@ -89,7 +91,7 @@ public class RobotContainer {
 
     //Added a right bumper shot for the far shot.
     driver.rightBumper()
-        .whileTrue(new SetShooterSpeed(shooter, 0.55))
+        .whileTrue(new SetShooterSpeed(shooter, 0.55)) 
         .whileFalse(new SetShooterSpeed(shooter, 0));
     
     // Kept the shot the same
@@ -102,8 +104,8 @@ public class RobotContainer {
         .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.a()
-        .whileTrue(new SetIndexerSpeed(indexer, 1.0))
-        .whileFalse(new SetIndexerSpeed(indexer, 0.0));
+        .whileTrue(new IndexerAndConveyor(conveyor, indexer, 0.5, 1.0))
+        .whileFalse(new IndexerAndConveyor(conveyor, indexer, 0.0, 0.0));
 
     driver.y()
         .whileTrue(new SetShooterAngle(shooterAngle,  Constants.LOCATION_TRUSS))
@@ -117,8 +119,7 @@ public class RobotContainer {
         .whileFalse(new SetIntakePosition(intakePivot, IntakePosition.UP));
 
     operator.leftBumper()
-        .whileTrue(new SetIntakePosition(intakePivot, IntakePosition.AMP))
-        .whileFalse(new SetIntakePosition(intakePivot, IntakePosition.UP));
+        .whileTrue(new IntakeUntilNoteDetected(conveyor, intake, 0.4, .5));
 
     operator.a()
         .whileTrue(new SetConveyorSpeed(conveyor, 0.4))

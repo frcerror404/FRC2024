@@ -86,7 +86,7 @@ public class Shooter extends SubsystemBase {
   private void motorSetup() {
     //Top Moter Setup
     TalonFXConfiguration topMotor_cfg = new TalonFXConfiguration();
-    topMotor_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+    topMotor_cfg.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     topMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     topMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
     topMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
@@ -98,6 +98,7 @@ public class Shooter extends SubsystemBase {
 
     //Bottom Moter Setup
     TalonFXConfiguration bottomMotor_cfg = new TalonFXConfiguration();
+    bottomMotor_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     bottomMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     bottomMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
     bottomMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
