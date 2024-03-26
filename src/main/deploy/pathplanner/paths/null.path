@@ -3,85 +3,75 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.6713391428667874,
-        "y": 5.577860731593282
+        "x": 1.3251117925421525,
+        "y": 5.562271181092787
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.49758531939307,
-        "y": 6.365133031868325
+        "x": 1.4569669481330554,
+        "y": 5.619515502147785
       },
       "isLocked": false,
-      "linkedName": "Field Shooting Location"
+      "linkedName": "Starting Location"
     },
     {
       "anchor": {
-        "x": 5.666801606930264,
-        "y": 7.035483703389651
+        "x": 2.595660158332569,
+        "y": 5.952009943605184
       },
       "prevControl": {
-        "x": 5.1758994019148785,
-        "y": 6.809337743775822
+        "x": 1.7437906128750174,
+        "y": 5.70591429713967
       },
       "nextControl": {
-        "x": 6.3605366042023315,
-        "y": 7.355069488649816
+        "x": 2.946425044593727,
+        "y": 6.053342021858406
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.810364800748452,
-        "y": 7.394043364901056
+        "x": 3.0165780218459592,
+        "y": 6.801640445882211
       },
       "prevControl": {
-        "x": 6.533071636801736,
-        "y": 7.374690438174591
+        "x": 3.0165780218459592,
+        "y": 6.755612264531632
       },
       "nextControl": {
-        "x": 8.324819967264823,
-        "y": 7.401838140151304
-      },
-      "isLocked": false,
-      "linkedName": "Note 4"
-    },
-    {
-      "anchor": {
-        "x": 6.266999301199357,
-        "y": 6.5833867388752685
-      },
-      "prevControl": {
-        "x": 6.7970440182162175,
-        "y": 6.8328195468832025
-      },
-      "nextControl": {
-        "x": 4.455746161683344,
-        "y": 5.731032320279499
+        "x": 3.0165780218459592,
+        "y": 6.838997416917822
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.6713391428667874,
-        "y": 5.577860731593282
+        "x": 1.3251117925421525,
+        "y": 5.562271181092787
       },
       "prevControl": {
-        "x": 4.762607677901501,
-        "y": 5.936420393104689
+        "x": 1.3251117925386868,
+        "y": 5.562271181097559
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Truss Shot"
+      "linkedName": "Starting Location"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.85,
+      "rotationDegrees": 106.2196676533945,
+      "rotateFast": false
+    }
+  ],
   "constraintZones": [],
   "eventMarkers": [
     {
-      "name": "Shoot Note 4",
-      "waypointRelativePos": 3.5,
+      "name": "Stop Intake",
+      "waypointRelativePos": 1.9500000000000002,
       "command": {
         "type": "parallel",
         "data": {
@@ -89,13 +79,13 @@
             {
               "type": "named",
               "data": {
-                "name": "IntakeOff"
+                "name": "ConveyorOff"
               }
             },
             {
               "type": "named",
               "data": {
-                "name": "ConveyorOff"
+                "name": "IntakeOff"
               }
             },
             {
@@ -115,31 +105,8 @@
       }
     },
     {
-      "name": "Intake Note 4",
-      "waypointRelativePos": 2.0,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "IntakeDown"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IntakeOn"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 4.0,
+      "name": "Shoot Note 2",
+      "waypointRelativePos": 2.8499999999999996,
       "command": {
         "type": "parallel",
         "data": {
@@ -169,7 +136,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,

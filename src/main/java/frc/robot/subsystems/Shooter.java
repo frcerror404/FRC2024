@@ -89,6 +89,7 @@ public class Shooter extends SubsystemBase {
     topMotor_cfg.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
     topMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     topMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
+    topMotor_cfg.Slot0.kD = Constants.SHOOTER_kD;
     topMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
     topMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
     topMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
@@ -101,6 +102,7 @@ public class Shooter extends SubsystemBase {
     bottomMotor_cfg.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
     bottomMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     bottomMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
+    bottomMotor_cfg.Slot0.kD = Constants.SHOOTER_kD;
     bottomMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
     bottomMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
     bottomMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
@@ -159,5 +161,9 @@ public class Shooter extends SubsystemBase {
   public boolean isTopWheelAtTargetVelocity(double tolerancePercentage) {
     double actualPercent = Math.abs(getTopMotorRPM() - TopRPMTarget) / (TopRPMTarget + .001);
     return (actualPercent < tolerancePercentage) || getTopMotorRPM() == Double.NaN;
+  }
+
+  public double getTopWheelTargetRPM() {
+    return TopRPMTarget;
   }
 }

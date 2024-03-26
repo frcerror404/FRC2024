@@ -132,4 +132,12 @@ public class ShooterAngle extends SubsystemBase {
   {
     angleMotor.setPosition(0);
   }
+
+  public boolean isShooterAtAngle(double toleranceDegrees) {
+    return Math.abs(getShooterAngle() - shooterAngleTarget) < toleranceDegrees;
+  }
+
+  public boolean isShooterAtAngle() {
+    return isShooterAtAngle(Constants.SHOOTER_ANGLE_DEFAULT_TOLERANCE);
+  }
 }

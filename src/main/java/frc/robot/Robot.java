@@ -11,6 +11,7 @@ import org.littletonrobotics.junction.networktables.NT4Publisher;
 import org.littletonrobotics.junction.wpilog.WPILOGReader;
 import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.TimedRobot;
@@ -30,11 +31,14 @@ public class Robot extends LoggedRobot {
     configLogging();
 
     m_robotContainer = new RobotContainer();
+
+    CameraServer.startAutomaticCapture();
   }
 
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run(); 
+    m_robotContainer.setLEDData();
   }
 
   @Override

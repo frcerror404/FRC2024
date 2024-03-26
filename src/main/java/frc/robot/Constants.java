@@ -35,6 +35,7 @@ public class Constants {
      */
 
     public static final int CONVEYOR_NOTE_SENSOR_CHANNEL = 9;
+    public static final int LED_PORT = 0;
 
     
 
@@ -51,6 +52,7 @@ public class Constants {
     public static final double ANGLE_MOTIONMAGIC_CV = 6.0;
     public static final double ANGLE_MOTOR_CURRENT_LIMIT = 20.0; // Amps
     public static final double ANGLE_MOTOR_CURRENT_LIMIT_HOME = 3.0; // Amps
+    public static final double SHOOTER_ANGLE_DEFAULT_TOLERANCE = 1.5;
 
 
     /**
@@ -74,17 +76,23 @@ public class Constants {
     /**
      * Shooter Constants
      */
-    public static final double SHOOTER_kP = .5;
+    public static final double SHOOTER_kP = .55;
     public static final double SHOOTER_kI = 3.5;
+    public static final double SHOOTER_kD = 0.0;
     public static final double SHOOTER_kA = 1600;
     public static final double SHOOTER_RPM_TOLERANCE_PERCENT = .05; // 5%
-    public static final double SHOOTER_CURRENT_LIMIT = 40.0;
+    public static final double SHOOTER_CURRENT_LIMIT = 50.0;
 
     public static final double SUBWOOFER_TOP_RPM = 2850;
     public static final double SUBWOOFER_BOTTOM_RPM = 2850;
 
     public static final double AMP_TOP_RPM = 650;
     public static final double AMP_BOTTOM_RPM = 500;
+
+    public static final double TRUSS_TOP_RPM = 2850;
+    public static final double TRUSS_BOTTOM_RPM = 3100;
+    
+    public static final double AUTO_SHOOT_NOTE_OUT_DELAY = 0.1; // Seconds
 
     /*
      * Conveyor Constants
@@ -99,11 +107,11 @@ public class Constants {
      * Shooter Location Constants
      * Angles measured in degrees
      */
-    public static final double LOCATION_SUBWOOFER = 65.0;
-    public static final double LOCATION_TRUSS = 88;
+    public static final double LOCATION_SUBWOOFER = 72.5;
+    public static final double LOCATION_TRUSS = 97.0;
     public static final double LOCATION_WING = 79.0;
     public static final double LOCATION_TEST = 100.0;
-    public static final double LOCATION_HOME = 70.0;
+    public static final double LOCATION_HOME = 72.5;
 
     /**
      * Climber Constants

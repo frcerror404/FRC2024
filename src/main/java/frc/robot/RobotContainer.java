@@ -28,6 +28,8 @@ import frc.robot.commands.SetConveyorSpeed;
 import frc.robot.commands.SetShooterAngle;
 import frc.robot.commands.SetShooterRPM;
 import frc.robot.commands.SetShooterSpeed;
+import frc.robot.commands.AutonomousCommands.AutoIntake;
+import frc.robot.commands.AutonomousCommands.AutoShootNote;
 import frc.robot.enums.IntakeConveyorSpeed;
 import frc.robot.enums.IntakePosition;
 import frc.robot.generated.TunerConstants;
@@ -37,6 +39,7 @@ import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.IntakePivot;
+import frc.robot.subsystems.LEDs;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.ShooterAngle;
 
@@ -59,6 +62,7 @@ public class RobotContainer {
   private final Conveyor conveyor = new Conveyor();
   private final Intake intake = new Intake();
   private final Climbers climbers = new Climbers();
+  private final LEDs leds = new LEDs();
 
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -113,6 +117,9 @@ public class RobotContainer {
     driver.b()
         .whileTrue(new SetShooterAngle(shooterAngle, Constants.LOCATION_TEST))
         .whileFalse(new SetShooterAngle(shooterAngle, Constants.LOCATION_HOME));
+
+    driver.x()
+        .whileTrue(new AutoShootNote(conveyor, indexer, shooterAngle, shooter, Constants.LOCATION_TRUSS, Constants.TRUSS_BOTTOM_RPM, Constants.TRUSS_TOP_RPM, 5.0));
 
     operator.rightBumper()
         .whileTrue(new SetIntakePosition(intakePivot, IntakePosition.DOWN))
@@ -181,5 +188,12 @@ public class RobotContainer {
     NamedCommands.registerCommand("IntakeOn", new SetIntakeSpeed(intake, 1.0));
     NamedCommands.registerCommand("IntakeOff", new SetIntakeSpeed(intake, 0.0));
     NamedCommands.registerCommand("AimSubwoofer", new SetShooterAngle(shooterAngle, Constants.LOCATION_SUBWOOFER));
+    NamedCommands.registerCommand("AutoShootSubwoofer", new AutoShootNote(conveyor, indexer, shooterAngle, shooter, Constants.LOCATION_SUBWOOFER, Constants.SUBWOOFER_TOP_RPM, Constants.SUBWOOFER_BOTTOM_RPM, 2.0));
+    NamedCommands.registerCommand("AutoShootTruss", new AutoShootNote(conveyor, indexer, shooterAngle, shooter, Constants.LOCATION_TRUSS, Constants.TRUSS_TOP_RPM, Constants.TRUSS_BOTTOM_RPM, 2.0));
+    NamedCommands.registerCommand("AutoIntake", new AutoIntake(intake, conveyor, intakePivot, 3.0));
+  }
+
+  public void setLEDData() {
+    leds.setRobotStatus(conveyor.isNoteInConveyor(), shooter.isTopWheelAtTargetVelocity(), shooter.isBottomWheelAtTargetVelocity(), shooter.getTopWheelTargetRPM());
   }
 }

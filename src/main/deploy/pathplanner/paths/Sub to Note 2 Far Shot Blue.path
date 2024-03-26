@@ -60,42 +60,7 @@
   ],
   "eventMarkers": [
     {
-      "name": "Stop Intake",
-      "waypointRelativePos": 1.45,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "named",
-              "data": {
-                "name": "ConveyorOff"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IntakeOff"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IntakeUp"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "ShooterOn"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "Shoot Note 2",
+      "name": "Truss Shot",
       "waypointRelativePos": 1.95,
       "command": {
         "type": "parallel",
@@ -104,13 +69,24 @@
             {
               "type": "named",
               "data": {
-                "name": "ConveyorOn"
+                "name": "AutoShootTruss"
               }
-            },
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Auto Intake",
+      "waypointRelativePos": 0,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
             {
               "type": "named",
               "data": {
-                "name": "IndexerOn"
+                "name": "AutoIntake"
               }
             }
           ]
