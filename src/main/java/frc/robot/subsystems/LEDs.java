@@ -53,7 +53,7 @@ public class LEDs extends SubsystemBase {
         if(NoteStatus) {
             for(int i = 0; i < m_ledBuffer.getLength(); i++)
             {
-                m_ledBuffer.setRGB(i, 0, 0, 255);
+                m_ledBuffer.setRGB(i, 75, 0, 130);
             }
         }
 

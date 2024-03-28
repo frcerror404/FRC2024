@@ -1,0 +1,80 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.3251117925421525,
+      "y": 5.562271181092787
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Ramon's Left Side SubToNote 1 Far Blue "
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoShootTruss"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Ramon's TrussToNote 4 Blue"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left CenterSubToNote 5 Blue"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left CenterSubToNote 6 Blue"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Ramon's Autos",
+  "choreoAuto": false
+}

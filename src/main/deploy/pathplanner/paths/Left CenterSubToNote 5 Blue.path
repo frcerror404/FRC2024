@@ -3,81 +3,85 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3374413054104268,
-        "y": 5.04737055123183
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4692964610013297,
-        "y": 5.104614872286828
+        "x": 3.80319429845769,
+        "y": 5.635105052648281
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Truss Shot"
     },
     {
       "anchor": {
-        "x": 2.098645680886225,
-        "y": 3.9699735890199306
+        "x": 6.103309020944149,
+        "y": 6.318364380366838
       },
       "prevControl": {
-        "x": 1.2119412263539764,
-        "y": 3.9699735890199306
+        "x": 5.574121454755436,
+        "y": 6.7089552030299355
       },
       "nextControl": {
-        "x": 2.5604138602383104,
-        "y": 3.9699735890199306
+        "x": 6.7580701419649785,
+        "y": 5.835088314851466
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.7661633639957715,
-        "y": 3.9699735890199306
+        "x": 8.332614742515066,
+        "y": 5.788319663349976
       },
       "prevControl": {
-        "x": 2.7661633639957715,
-        "y": 3.923945407669352
+        "x": 8.332614742515066,
+        "y": 5.7422914819993975
       },
       "nextControl": {
-        "x": 2.7661633639957715,
-        "y": 4.007330560055542
+        "x": 8.332614742515066,
+        "y": 5.825676634385587
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.3374413054104268,
-        "y": 5.04737055123183
+        "x": 6.103309020944149,
+        "y": 6.4664651101215505
       },
       "prevControl": {
-        "x": 1.3374413054069612,
-        "y": 5.047370551236602
+        "x": 7.272525308481343,
+        "y": 6.419696458620063
+      },
+      "nextControl": {
+        "x": 4.937150667177732,
+        "y": 6.513111444272207
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.6713391428667874,
+        "y": 5.577860731593282
+      },
+      "prevControl": {
+        "x": 3.6713391428633217,
+        "y": 5.577860731598054
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Truss Shot"
     }
   ],
   "rotationTargets": [],
-  "constraintZones": [
-    {
-      "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 2.15,
-      "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 4.0,
-        "maxAngularVelocity": 540.0,
-        "maxAngularAcceleration": 720.0
-      }
-    }
-  ],
+  "constraintZones": [],
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 2.45,
+      "waypointRelativePos": 2.7,
       "command": {
         "type": "parallel",
         "data": {
@@ -112,7 +116,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.8499999999999996,
+      "waypointRelativePos": 3.0,
       "command": {
         "type": "parallel",
         "data": {
@@ -120,13 +124,7 @@
             {
               "type": "named",
               "data": {
-                "name": "ConveyorOn"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IndexerOn"
+                "name": "AutoShootTruss"
               }
             }
           ]
@@ -146,7 +144,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Blue",
+  "folder": "Test Blue",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0

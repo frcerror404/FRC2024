@@ -88,7 +88,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 2 Blue"
+            "pathName": "Left CenterSubToNote 1 Blue"
           }
         },
         {
@@ -125,7 +125,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 1 Blue"
+            "pathName": "Left CenterSubToNote 4 Blue"
           }
         },
         {
@@ -162,7 +162,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 3 Blue"
+            "pathName": "Left CenterSubToNote 5 Blue"
           }
         },
         {
@@ -172,13 +172,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ShooterOff"
+                  "name": "IntakeDown"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOff"
+                  "name": "IntakeOn"
                 }
               },
               {
@@ -186,13 +186,25 @@
                 "data": {
                   "name": "IndexerOff"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left CenterSubToNote 6 Blue"
           }
         }
       ]
     }
   },
-  "folder": "Working Comp",
+  "folder": null,
   "choreoAuto": false
 }

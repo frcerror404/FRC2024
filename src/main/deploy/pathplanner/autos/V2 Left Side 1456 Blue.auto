@@ -57,38 +57,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 0.375
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IndexerOff"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDown"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeOn"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CenterSubToNote 2 Blue"
+            "waitTime": 0.38
           }
         },
         {
@@ -112,12 +81,6 @@
                 "data": {
                   "name": "IndexerOff"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ConveyorOn"
-                }
               }
             ]
           }
@@ -125,7 +88,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 1 Blue"
+            "pathName": "Left Side SubToNote 1 Far Blue"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeOff"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TrussToNote 4 Blue"
           }
         },
         {
@@ -162,7 +137,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 3 Blue"
+            "pathName": "Left CenterSubToNote 5 Blue"
           }
         },
         {
@@ -172,13 +147,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ShooterOff"
+                  "name": "IntakeDown"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOff"
+                  "name": "IntakeOn"
                 }
               },
               {
@@ -186,13 +161,25 @@
                 "data": {
                   "name": "IndexerOff"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left CenterSubToNote 6 Blue"
           }
         }
       ]
     }
   },
-  "folder": "Working Comp",
+  "folder": null,
   "choreoAuto": false
 }

@@ -61,7 +61,7 @@ public class Constants {
 
     public static final double INTAKE_kP = .65;
     public static final double INTAKE_kI = .005;
-    public static final double INTAKE_kD = .03;
+    public static final double INTAKE_kD = .015;
     public static final double INTAKE_kV = 0.0;
     public static final double INTAKE_MOTIONMAGIC_ACC = 160;
     public static final double INTAKE_MOTIONMAGIC_CV = 30;
@@ -85,9 +85,10 @@ public class Constants {
 
     public static final double SUBWOOFER_TOP_RPM = 2850;
     public static final double SUBWOOFER_BOTTOM_RPM = 2850;
-
-    public static final double AMP_TOP_RPM = 650;
-    public static final double AMP_BOTTOM_RPM = 500;
+    
+    // Changing constants to up spped for a consistent shot
+    public static final double AMP_TOP_RPM = 700; //650 -> 700
+    public static final double AMP_BOTTOM_RPM = 825; //500 -> 825
 
     public static final double TRUSS_TOP_RPM = 2850;
     public static final double TRUSS_BOTTOM_RPM = 3100;

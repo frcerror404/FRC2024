@@ -189,10 +189,16 @@
               }
             ]
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CenterSubToNote 4 Blue"
+          }
         }
       ]
     }
   },
-  "folder": "Working Comp",
+  "folder": null,
   "choreoAuto": false
 }

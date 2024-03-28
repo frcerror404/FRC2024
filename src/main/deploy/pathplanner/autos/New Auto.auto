@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.3562908935431441,
+      "y": 5.562271181092787
+    },
+    "rotation": 0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeDown"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShooterOn"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AimSubwoofer"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New Path"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

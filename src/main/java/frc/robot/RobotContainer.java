@@ -177,20 +177,23 @@ public class RobotContainer {
   }
 
   private void registerNamedCommands() {
-    NamedCommands.registerCommand("ShooterOn", new SetShooterRPM(shooter, Constants.SUBWOOFER_TOP_RPM, Constants.SUBWOOFER_BOTTOM_RPM));
-    NamedCommands.registerCommand("ShooterOff", new SetShooterRPM(shooter, 0, 0));
-    NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.35));
+    NamedCommands.registerCommand("ShooterOn", new SetShooterSpeed(shooter, .65));
+    NamedCommands.registerCommand("ShooterOff", new SetShooterSpeed(shooter, 0));
+    NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.6));
     NamedCommands.registerCommand("ConveyorOff", new SetConveyorSpeed(conveyor, 0.0));
     NamedCommands.registerCommand("IndexerOn", new SetIndexerSpeed(indexer, 1.0));
     NamedCommands.registerCommand("IndexerOff", new SetIndexerSpeed(indexer, 0.0));
     NamedCommands.registerCommand("IntakeDown", new SetIntakePosition(intakePivot, IntakePosition.DOWN));
     NamedCommands.registerCommand("IntakeUp", new SetIntakePosition(intakePivot, IntakePosition.UP));
-    NamedCommands.registerCommand("IntakeOn", new SetIntakeSpeed(intake, 1.0));
+    NamedCommands.registerCommand("IntakeOn", new SetIntakeSpeed(intake, .5));
     NamedCommands.registerCommand("IntakeOff", new SetIntakeSpeed(intake, 0.0));
     NamedCommands.registerCommand("AimSubwoofer", new SetShooterAngle(shooterAngle, Constants.LOCATION_SUBWOOFER));
+    NamedCommands.registerCommand("AimTruss", new SetShooterAngle(shooterAngle, Constants.LOCATION_TRUSS));
     NamedCommands.registerCommand("AutoShootSubwoofer", new AutoShootNote(conveyor, indexer, shooterAngle, shooter, Constants.LOCATION_SUBWOOFER, Constants.SUBWOOFER_TOP_RPM, Constants.SUBWOOFER_BOTTOM_RPM, 2.0));
     NamedCommands.registerCommand("AutoShootTruss", new AutoShootNote(conveyor, indexer, shooterAngle, shooter, Constants.LOCATION_TRUSS, Constants.TRUSS_TOP_RPM, Constants.TRUSS_BOTTOM_RPM, 2.0));
     NamedCommands.registerCommand("AutoIntake", new AutoIntake(intake, conveyor, intakePivot, 3.0));
+    NamedCommands.registerCommand("IntakeUntilNote", new IntakeUntilNoteDetected(conveyor, intake, .65, .5));
+    NamedCommands.registerCommand("IndexerAndConveyorOn", new IndexerAndConveyor(conveyor, indexer, .6, 1.0));
   }
 
   public void setLEDData() {

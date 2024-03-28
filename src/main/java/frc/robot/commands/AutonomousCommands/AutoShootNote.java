@@ -54,7 +54,7 @@ public class AutoShootNote extends Command {
   public void execute() {
     if(m_shooter.isBottomWheelAtTargetVelocity() && m_shooter.isTopWheelAtTargetVelocity() && m_shooterAngle.isShooterAtAngle())
     {
-      m_conveyor.SetConveyorSpeed(.5);
+      m_conveyor.SetConveyorSpeed(.8);
       m_indexer.setFeederSpeed(1.0);
     }
 

@@ -8,56 +8,40 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.304984706105133,
-        "y": 6.443080784370805
+        "x": 3.7558101775635793,
+        "y": 5.4615536439064085
       },
       "isLocked": false,
-      "linkedName": "Field Shooting Location"
+      "linkedName": "Truss Shot"
     },
     {
       "anchor": {
-        "x": 2.891861617841992,
-        "y": 7.027688928139402
+        "x": 8.083181934507131,
+        "y": 7.199173983644857
       },
       "prevControl": {
-        "x": 3.1557022427106958,
-        "y": 6.555973871555963
+        "x": 8.083181934507131,
+        "y": 7.153145802294278
       },
       "nextControl": {
-        "x": 2.634634034583809,
-        "y": 7.487580667904031
+        "x": 8.083181934507131,
+        "y": 7.236530954680468
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.810364800748452,
-        "y": 7.394043364901056
+        "x": 5.931823965438694,
+        "y": 6.154674100111631
       },
       "prevControl": {
-        "x": 6.533071636801736,
-        "y": 7.374690438174591
+        "x": 7.093245477725639,
+        "y": 6.645744940877251
       },
       "nextControl": {
-        "x": 8.324819967264823,
-        "y": 7.401838140151304
-      },
-      "isLocked": false,
-      "linkedName": "Note 4"
-    },
-    {
-      "anchor": {
-        "x": 6.266999301199357,
-        "y": 6.5833867388752685
-      },
-      "prevControl": {
-        "x": 6.7970440182162175,
-        "y": 6.8328195468832025
-      },
-      "nextControl": {
-        "x": 4.455746161683344,
-        "y": 5.731032320279499
+        "x": 4.779116441428246,
+        "y": 5.667287697342114
       },
       "isLocked": false,
       "linkedName": null
@@ -68,8 +52,8 @@
         "y": 5.577860731593282
       },
       "prevControl": {
-        "x": 4.762607677901501,
-        "y": 5.936420393104689
+        "x": 3.6713391428633217,
+        "y": 5.577860731598054
       },
       "nextControl": null,
       "isLocked": false,
@@ -78,16 +62,16 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.45,
-      "rotationDegrees": 0,
+      "waypointRelativePos": 0.6,
+      "rotationDegrees": 30.0,
       "rotateFast": false
     }
   ],
   "constraintZones": [],
   "eventMarkers": [
     {
-      "name": "New Event Marker",
-      "waypointRelativePos": 2.3,
+      "name": "Shoot Note 2",
+      "waypointRelativePos": 3.0,
       "command": {
         "type": "parallel",
         "data": {
@@ -95,25 +79,24 @@
             {
               "type": "named",
               "data": {
-                "name": "IntakeOff"
+                "name": "AutoShootTruss"
               }
-            },
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Auto Intake",
+      "waypointRelativePos": 0.5499999999999999,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
             {
               "type": "named",
               "data": {
-                "name": "ConveyorOff"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "IntakeUp"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
-                "name": "ShooterOn"
+                "name": "AutoIntake"
               }
             }
           ]
@@ -129,13 +112,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Blue",
+  "folder": "Test Blue",
   "previewStartingState": {
-    "rotation": 0,
+    "rotation": 0.0,
     "velocity": 0
   },
   "useDefaultConstraints": true

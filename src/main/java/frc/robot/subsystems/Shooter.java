@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.MotionMagicVelocityVoltage;
+import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
@@ -40,6 +41,9 @@ public class Shooter extends SubsystemBase {
   private final DoublePublisher BottomMotorTemperatureOut;
 
   private double TopRPMTarget = 0, BottomRPMTarget = 0;
+
+  private final MotionMagicVelocityVoltage topMM = new MotionMagicVelocityVoltage(0);
+  private final MotionMagicVelocityVoltage bottomMM = new MotionMagicVelocityVoltage(0);
 
 
 
@@ -109,6 +113,9 @@ public class Shooter extends SubsystemBase {
 
 
     BottomShooterMotor.getConfigurator().apply(bottomMotor_cfg);
+
+    //topMM.withEnableFOC(false);
+    //bottomMM.withEnableFOC(false);
     
     //BottomShooterMotor.setControl(new Follower(TopShooterMotor.getDeviceID(), true));
   }
@@ -132,8 +139,11 @@ public class Shooter extends SubsystemBase {
     double topRPS = topRPM / 60.0;
     double bottomRPS = bottomRPM / 60.0;
     
-    TopShooterMotor.setControl(new MotionMagicVelocityVoltage(topRPS));
-    BottomShooterMotor.setControl(new MotionMagicVelocityVoltage(bottomRPS));
+    //TopShooterMotor.setControl(new MotionMagicVelocityVoltage(topRPS, Constants.SHOOTER_kA, false, 0.0, 0, false, false, false));
+    //TopShooterMotor.setControl(topMM.withVelocity(topRPS));
+    //BottomShooterMotor.setControl(bottomMM.withVelocity(bottomRPS));
+    TopShooterMotor.setControl(new VelocityVoltage(topRPS));
+    BottomShooterMotor.setControl(new VelocityVoltage(bottomRPS));
   }
 
   public double getTopMotorRPM() {

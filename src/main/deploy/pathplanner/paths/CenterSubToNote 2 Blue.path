@@ -65,7 +65,7 @@
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.85,
+      "waypointRelativePos": 2.75,
       "command": {
         "type": "parallel",
         "data": {
@@ -100,7 +100,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.8499999999999996,
+      "waypointRelativePos": 2.65,
       "command": {
         "type": "parallel",
         "data": {
@@ -124,7 +124,7 @@
   ],
   "globalConstraints": {
     "maxVelocity": 4.5,
-    "maxAcceleration": 4.5,
+    "maxAcceleration": 4.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
@@ -134,7 +134,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Red",
+  "folder": "Working Blue",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0
