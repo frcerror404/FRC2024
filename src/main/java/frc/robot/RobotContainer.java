@@ -23,6 +23,7 @@ import frc.robot.commands.SetIntakeSpeed;
 import frc.robot.commands.IndexerAndConveyor;
 import frc.robot.commands.IntakeAndConveyor;
 import frc.robot.commands.IntakeUntilNoteDetected;
+import frc.robot.commands.ReseedIntakePosition;
 import frc.robot.commands.SetClimberSpeed;
 import frc.robot.commands.SetConveyorSpeed;
 import frc.robot.commands.SetShooterAngle;
@@ -30,6 +31,7 @@ import frc.robot.commands.SetShooterRPM;
 import frc.robot.commands.SetShooterSpeed;
 import frc.robot.commands.AutonomousCommands.AutoIntake;
 import frc.robot.commands.AutonomousCommands.AutoShootNote;
+import frc.robot.commands.AutonomousCommands.AutoStopConveyor;
 import frc.robot.enums.IntakeConveyorSpeed;
 import frc.robot.enums.IntakePosition;
 import frc.robot.generated.TunerConstants;
@@ -151,6 +153,8 @@ public class RobotContainer {
     operator.leftTrigger(.1)
         .whileTrue(new SetClimberSpeed(climbers, -0.5))
         .whileFalse(new SetClimberSpeed(climbers, 0.0));
+
+    operator.start().whileTrue(new ReseedIntakePosition(intakePivot));
   }
 
   public RobotContainer() {
@@ -180,6 +184,7 @@ public class RobotContainer {
     NamedCommands.registerCommand("ShooterOn", new SetShooterSpeed(shooter, .65));
     NamedCommands.registerCommand("ShooterOff", new SetShooterSpeed(shooter, 0));
     NamedCommands.registerCommand("ConveyorOn", new SetConveyorSpeed(conveyor, 0.6));
+    NamedCommands.registerCommand("ConveyorOnAutoStop", new AutoStopConveyor(conveyor, 0.6));
     NamedCommands.registerCommand("ConveyorOff", new SetConveyorSpeed(conveyor, 0.0));
     NamedCommands.registerCommand("IndexerOn", new SetIndexerSpeed(indexer, 1.0));
     NamedCommands.registerCommand("IndexerOff", new SetIndexerSpeed(indexer, 0.0));
@@ -198,5 +203,9 @@ public class RobotContainer {
 
   public void setLEDData() {
     leds.setRobotStatus(conveyor.isNoteInConveyor(), shooter.isTopWheelAtTargetVelocity(), shooter.isBottomWheelAtTargetVelocity(), shooter.getTopWheelTargetRPM());
+  }
+
+  public void seedIntakePosition() {
+    intakePivot.seedArmPosition();
   }
 }

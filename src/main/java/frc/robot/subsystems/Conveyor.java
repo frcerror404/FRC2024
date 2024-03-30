@@ -33,6 +33,8 @@ public class Conveyor extends SubsystemBase {
   private final DoublePublisher BottomConveyerTempOut;
   private final DoublePublisher TopConveyorTempOut;
   private final BooleanPublisher ConvNoteSensor;
+
+  private boolean autoStop = false;
   
   /** Creates a new Conveyor. */
   public Conveyor() {
@@ -52,6 +54,20 @@ public class Conveyor extends SubsystemBase {
   public void SetConveyorSpeed(double speed) {
     TopConveyorMotor.set(speed * top_sfm_ratio);
     BottomConveyorMotor.set(speed);
+    autoStop = false;
+  }
+
+  public void SetConveyorSpeedAutoStop(double speed) {
+
+    if(!isNoteInConveyor()) {
+      TopConveyorMotor.set(speed * top_sfm_ratio);
+      BottomConveyorMotor.set(speed);
+    } else {
+      TopConveyorMotor.set(0);
+      BottomConveyorMotor.set(0);
+    }
+
+    autoStop = true;
   }
 
   @Override
@@ -60,6 +76,11 @@ public class Conveyor extends SubsystemBase {
     BottomConveyerTempOut.set(BottomConveyorMotor.getMotorTemperature());
     TopConveyorTempOut.set(TopConveyorMotor.getMotorTemperature());
     ConvNoteSensor.set(isNoteInConveyor());
+
+    if(isNoteInConveyor() && autoStop) {
+      SetConveyorSpeed(0.0);
+      System.out.println("Auto Conveyor Stop");
+    }
   }
 
   public boolean isNoteInConveyor() {

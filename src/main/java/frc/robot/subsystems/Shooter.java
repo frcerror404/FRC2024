@@ -94,7 +94,8 @@ public class Shooter extends SubsystemBase {
     topMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     topMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
     topMotor_cfg.Slot0.kD = Constants.SHOOTER_kD;
-    topMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
+    topMotor_cfg.Slot0.kV = Constants.SHOOTER_kV;
+    topMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_MMAcceleration;
     topMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
     topMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
 
@@ -107,7 +108,8 @@ public class Shooter extends SubsystemBase {
     bottomMotor_cfg.Slot0.kP = Constants.SHOOTER_kP;
     bottomMotor_cfg.Slot0.kI = Constants.SHOOTER_kI;
     bottomMotor_cfg.Slot0.kD = Constants.SHOOTER_kD;
-    bottomMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_kA;
+    bottomMotor_cfg.Slot0.kV = Constants.SHOOTER_kV;
+    bottomMotor_cfg.MotionMagic.MotionMagicAcceleration = Constants.SHOOTER_MMAcceleration;
     bottomMotor_cfg.CurrentLimits.SupplyCurrentLimit = Constants.SHOOTER_CURRENT_LIMIT;
     bottomMotor_cfg.CurrentLimits.SupplyCurrentLimitEnable = true;
 
@@ -142,8 +144,8 @@ public class Shooter extends SubsystemBase {
     //TopShooterMotor.setControl(new MotionMagicVelocityVoltage(topRPS, Constants.SHOOTER_kA, false, 0.0, 0, false, false, false));
     //TopShooterMotor.setControl(topMM.withVelocity(topRPS));
     //BottomShooterMotor.setControl(bottomMM.withVelocity(bottomRPS));
-    TopShooterMotor.setControl(new VelocityVoltage(topRPS));
-    BottomShooterMotor.setControl(new VelocityVoltage(bottomRPS));
+    TopShooterMotor.setControl(new MotionMagicVelocityVoltage(topRPS));
+    BottomShooterMotor.setControl(new MotionMagicVelocityVoltage(bottomRPS));
   }
 
   public double getTopMotorRPM() {

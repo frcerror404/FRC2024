@@ -91,7 +91,7 @@ public class TunerConstants {
     private static final int kFrontLeftDriveMotorId = 11;
     private static final int kFrontLeftSteerMotorId = 12;
     private static final int kFrontLeftEncoderId = 13;
-    private static final double kFrontLeftEncoderOffset = 0.28271484375;
+    private static final double kFrontLeftEncoderOffset = 0.286376953125;
 
     private static final double kFrontLeftXPosInches = 10.375;
     private static final double kFrontLeftYPosInches = 10.375;
@@ -100,7 +100,7 @@ public class TunerConstants {
     private static final int kFrontRightDriveMotorId = 21;
     private static final int kFrontRightSteerMotorId = 22;
     private static final int kFrontRightEncoderId = 23;
-    private static final double kFrontRightEncoderOffset = -0.212890625;
+    private static final double kFrontRightEncoderOffset = -0.214599609375;
 
     private static final double kFrontRightXPosInches = 10.375;
     private static final double kFrontRightYPosInches = -10.375;
@@ -109,7 +109,7 @@ public class TunerConstants {
     private static final int kBackLeftDriveMotorId = 31;
     private static final int kBackLeftSteerMotorId = 32;
     private static final int kBackLeftEncoderId = 43;
-    private static final double kBackLeftEncoderOffset = -0.0322265625;
+    private static final double kBackLeftEncoderOffset = -0.0390625;
 
     private static final double kBackLeftXPosInches = -10.375;
     private static final double kBackLeftYPosInches = 10.375;
@@ -118,10 +118,11 @@ public class TunerConstants {
     private static final int kBackRightDriveMotorId = 41;
     private static final int kBackRightSteerMotorId = 42;
     private static final int kBackRightEncoderId = 33;
-    private static final double kBackRightEncoderOffset = -0.18359375;
+    private static final double kBackRightEncoderOffset = -0.185546875;
 
     private static final double kBackRightXPosInches = -10.375;
     private static final double kBackRightYPosInches = -10.375;
+
 
     private static final SwerveModuleConstants FrontLeft = ConstantCreator.createModuleConstants(
             kFrontLeftSteerMotorId, kFrontLeftDriveMotorId, kFrontLeftEncoderId, kFrontLeftEncoderOffset, Units.inchesToMeters(kFrontLeftXPosInches), Units.inchesToMeters(kFrontLeftYPosInches), kInvertLeftSide);

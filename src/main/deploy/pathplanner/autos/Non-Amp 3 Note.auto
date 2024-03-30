@@ -1,0 +1,142 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.701529772522316,
+      "y": 4.463207870807824
+    },
+    "rotation": -61.85839876773824
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeUp"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShooterOn"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AimSubwoofer"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Side Sub 8 Blue"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOnAutoStop"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Side Sub 2 Blue"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Side Autos",
+  "choreoAuto": false
+}

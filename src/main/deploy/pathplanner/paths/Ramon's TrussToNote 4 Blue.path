@@ -48,6 +48,22 @@
     },
     {
       "anchor": {
+        "x": 5.83828666243572,
+        "y": 6.676924041878244
+      },
+      "prevControl": {
+        "x": 6.882786545968946,
+        "y": 6.902972524135435
+      },
+      "nextControl": {
+        "x": 4.729793946336387,
+        "y": 6.437026364513462
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
         "x": 3.6713391428667874,
         "y": 5.577860731593282
       },
@@ -65,7 +81,7 @@
   "eventMarkers": [
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.7,
+      "waypointRelativePos": 3.4,
       "command": {
         "type": "parallel",
         "data": {
@@ -105,7 +121,7 @@
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 4.5,
+    "maxVelocity": 3.25,
     "maxAcceleration": 4.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0

@@ -82,7 +82,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Ramon's SubToNote 1 Blue"
+            "pathName": "Ramon's SubToNote 2 Blue"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Ramon's TrussToNote 1 Blue"
           }
         },
         {
@@ -95,6 +101,18 @@
           "type": "path",
           "data": {
             "pathName": "Ramon's TrussToNote 4 Blue"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoShootTruss"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Ramon's TrussToNote 5 Blue"
           }
         },
         {

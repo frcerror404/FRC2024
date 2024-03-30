@@ -29,7 +29,7 @@ public class IntakePivot extends SubsystemBase {
 
   private double minIntakePosition = Constants.INTAKE_UP_POS;
 
-  private final DoublePublisher ArmAngleOut, ArmAngleRawOut, ArmAngleRequestOut;
+  private final DoublePublisher ArmAngleOut, ArmAngleRawOut, ArmAngleRequestOut, MinIntakePositionOut;
   private final DoublePublisher RightPivotTempOut;
   private final DoublePublisher LeftPivotTempOut;
 
@@ -37,15 +37,17 @@ public class IntakePivot extends SubsystemBase {
   public IntakePivot() {
 
     NetworkTableInstance inst = NetworkTableInstance.getDefault();
-    NetworkTable shooterTable = inst.getTable("intake pivot");
+    NetworkTable intakePivotTable = inst.getTable("intake pivot");
     NetworkTable temperatureTable = inst.getTable("temperature");
     
-    ArmAngleOut = shooterTable.getDoubleTopic("Intake Angle").publish();
-    ArmAngleRawOut = shooterTable.getDoubleTopic("Intake Angle Raw").publish();
-    ArmAngleRequestOut = shooterTable.getDoubleTopic("Intake Angle Request").publish();
+    ArmAngleOut = intakePivotTable.getDoubleTopic("Intake Angle").publish();
+    ArmAngleRawOut = intakePivotTable.getDoubleTopic("Intake Angle Raw").publish();
+    ArmAngleRequestOut = intakePivotTable.getDoubleTopic("Intake Angle Request").publish();
 
     RightPivotTempOut = temperatureTable.getDoubleTopic("Pivot R").publish();
     LeftPivotTempOut = temperatureTable.getDoubleTopic("Pivot L").publish();
+
+    MinIntakePositionOut = intakePivotTable.getDoubleTopic("Min Intake Pos").publish();
 
     TalonFXConfiguration fx_cfg = new TalonFXConfiguration();
 
@@ -103,15 +105,23 @@ public class IntakePivot extends SubsystemBase {
   @Override
   public void periodic() {
     // Helps fix annoying issue where intake has to be up when powered on
-    if(RightIntakePivot.getPosition().getValueAsDouble() < minIntakePosition) {
-      minIntakePosition = RightIntakePivot.getPosition().getValueAsDouble();
-    }
 
     ArmAngleOut.set(getIntakeAngle());
     ArmAngleRawOut.set(RightIntakePivot.getPosition().getValueAsDouble());
     ArmAngleRequestOut.set(requested_position_raw);
+    MinIntakePositionOut.set(minIntakePosition);
 
     RightPivotTempOut.set(RightIntakePivot.getDeviceTemp().getValueAsDouble());
     LeftPivotTempOut.set(LeftIntakePivot.getDeviceTemp().getValueAsDouble());
+  }
+
+  public void seedArmPosition() {
+    if(RightIntakePivot.getPosition().getValueAsDouble() < minIntakePosition) {
+      minIntakePosition = RightIntakePivot.getPosition().getValueAsDouble();
+    }
+  }
+
+  public void reseedArmPosition() {
+    minIntakePosition = RightIntakePivot.getPosition().getValueAsDouble();
   }
 }

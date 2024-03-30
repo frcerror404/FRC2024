@@ -3,75 +3,69 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3251117925421525,
-        "y": 5.562271181092787
+        "x": 3.67,
+        "y": 5.58
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4569669481330554,
-        "y": 5.619515502147785
+        "x": 3.8018551555909035,
+        "y": 5.6372443210549985
       },
       "isLocked": false,
       "linkedName": "Starting Location"
     },
     {
       "anchor": {
-        "x": 2.595660158332569,
-        "y": 5.952009943605184
+        "x": 2.104589317566948,
+        "y": 6.902972524135435
       },
       "prevControl": {
-        "x": 1.7437906128750174,
-        "y": 5.70591429713967
+        "x": 2.810091574037142,
+        "y": 5.417704615777132
       },
       "nextControl": {
-        "x": 2.946425044593727,
-        "y": 6.053342021858406
+        "x": 1.9564885878122371,
+        "y": 7.214763534145352
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.0165780218459592,
-        "y": 6.801640445882211
+        "x": 3.1334996505996786,
+        "y": 6.902972524135435
       },
       "prevControl": {
-        "x": 3.0165780218459592,
-        "y": 6.755612264531632
+        "x": 3.1334996505996786,
+        "y": 6.856944342784856
       },
       "nextControl": {
-        "x": 3.0165780218459592,
-        "y": 6.838997416917822
+        "x": 3.1334996505996786,
+        "y": 6.940329495171046
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.3251117925421525,
-        "y": 5.562271181092787
+        "x": 3.67,
+        "y": 5.58
       },
       "prevControl": {
-        "x": 1.3251117925386868,
-        "y": 5.562271181097559
+        "x": 3.6699999999965343,
+        "y": 5.580000000004772
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "Starting Location"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 1.85,
-      "rotationDegrees": 106.2196676533945,
-      "rotateFast": false
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 2.35,
+      "waypointRelativePos": 2.45,
       "command": {
         "type": "parallel",
         "data": {
@@ -91,12 +85,6 @@
             {
               "type": "named",
               "data": {
-                "name": "IntakeUp"
-              }
-            },
-            {
-              "type": "named",
-              "data": {
                 "name": "ShooterOn"
               }
             }
@@ -106,7 +94,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.75,
+      "waypointRelativePos": 2.9,
       "command": {
         "type": "parallel",
         "data": {
@@ -129,7 +117,7 @@
     }
   ],
   "globalConstraints": {
-    "maxVelocity": 4.5,
+    "maxVelocity": 3.25,
     "maxAcceleration": 4.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
@@ -140,7 +128,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Working Blue",
+  "folder": "Comp 1 Blue",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0

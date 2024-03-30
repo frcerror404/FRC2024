@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.CANSparkMax;
@@ -33,6 +34,13 @@ private final DoublePublisher RightIntakeTempOut;
 
     RightIntakeTempOut = tempTable.getDoubleTopic("IntakeR").publish();
     LeftIntakeTempOut = tempTable.getDoubleTopic("IntakeL").publish();
+
+    TalonFXConfiguration cc_limit = new TalonFXConfiguration();
+    cc_limit.CurrentLimits.SupplyCurrentLimit = 30;
+    cc_limit.CurrentLimits.SupplyCurrentLimitEnable = true;
+
+    LeftIntakeMotor.getConfigurator().apply(cc_limit);
+    RightIntakeMotor.getConfigurator().apply(cc_limit);
     
   }
 

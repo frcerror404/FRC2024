@@ -76,10 +76,12 @@ public class Constants {
     /**
      * Shooter Constants
      */
-    public static final double SHOOTER_kP = .55;
-    public static final double SHOOTER_kI = 3.5;
+    public static final double SHOOTER_kP = 0.2;
+    public static final double SHOOTER_kI = 0.2;
     public static final double SHOOTER_kD = 0.0;
-    public static final double SHOOTER_kA = 1600;
+    public static final double SHOOTER_kV = 0.11;
+    public static final double SHOOTER_MMAcceleration = 2300;
+
     public static final double SHOOTER_RPM_TOLERANCE_PERCENT = .05; // 5%
     public static final double SHOOTER_CURRENT_LIMIT = 50.0;
 
@@ -87,8 +89,8 @@ public class Constants {
     public static final double SUBWOOFER_BOTTOM_RPM = 2850;
     
     // Changing constants to up spped for a consistent shot
-    public static final double AMP_TOP_RPM = 700; //650 -> 700
-    public static final double AMP_BOTTOM_RPM = 825; //500 -> 825
+    public static final double AMP_TOP_RPM = 775; //650 -> 850
+    public static final double AMP_BOTTOM_RPM = 875; //500 -> 975
 
     public static final double TRUSS_TOP_RPM = 2850;
     public static final double TRUSS_BOTTOM_RPM = 3100;
@@ -112,7 +114,7 @@ public class Constants {
     public static final double LOCATION_TRUSS = 97.0;
     public static final double LOCATION_WING = 79.0;
     public static final double LOCATION_TEST = 100.0;
-    public static final double LOCATION_HOME = 72.5;
+    public static final double LOCATION_HOME = 71;
 
     /**
      * Climber Constants

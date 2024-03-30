@@ -81,6 +81,12 @@
                 "data": {
                   "name": "IntakeOn"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOnAutoStop"
+                }
               }
             ]
           }
@@ -116,7 +122,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOn"
+                  "name": "ConveyorOnAutoStop"
                 }
               }
             ]
@@ -153,7 +159,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOn"
+                  "name": "ConveyorOnAutoStop"
                 }
               }
             ]
@@ -163,6 +169,12 @@
           "type": "path",
           "data": {
             "pathName": "CenterSubToNote 3 Blue"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
           }
         },
         {

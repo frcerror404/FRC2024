@@ -1,0 +1,155 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 15.32,
+        "y": 5.597779868883561
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 15.09749410563015,
+        "y": 5.457249830334183
+      },
+      "isLocked": false,
+      "linkedName": "Red Start"
+    },
+    {
+      "anchor": {
+        "x": 14.371602380865248,
+        "y": 5.597779868883561
+      },
+      "prevControl": {
+        "x": 14.980565881245884,
+        "y": 5.597779868883561
+      },
+      "nextControl": {
+        "x": 13.87752164573021,
+        "y": 5.597779868883561
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 13.212229562832878,
+        "y": 5.597779868883561
+      },
+      "prevControl": {
+        "x": 13.212229562832878,
+        "y": 5.551751687532982
+      },
+      "nextControl": {
+        "x": 13.212229562832878,
+        "y": 5.635136839919172
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 15.32,
+        "y": 5.597779868883561
+      },
+      "prevControl": {
+        "x": 15.319999999996535,
+        "y": 5.597779868888333
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Red Start"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [
+    {
+      "name": "Slow for Note Pickup",
+      "minWaypointRelativePos": 1.0,
+      "maxWaypointRelativePos": 2.15,
+      "constraints": {
+        "maxVelocity": 1.0,
+        "maxAcceleration": 4.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0
+      }
+    }
+  ],
+  "eventMarkers": [
+    {
+      "name": "Stop Intake",
+      "waypointRelativePos": 1.9500000000000002,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "ConveyorOff"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "IntakeOff"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "IntakeUp"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "ShooterOn"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Shoot Note 2",
+      "waypointRelativePos": 2.8499999999999996,
+      "command": {
+        "type": "parallel",
+        "data": {
+          "commands": [
+            {
+              "type": "named",
+              "data": {
+                "name": "ConveyorOn"
+              }
+            },
+            {
+              "type": "named",
+              "data": {
+                "name": "IndexerOn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.25,
+    "maxAcceleration": 4.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 180.0,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": "Test Red",
+  "previewStartingState": {
+    "rotation": 179.225779835072,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}

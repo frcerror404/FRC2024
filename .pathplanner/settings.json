@@ -4,16 +4,21 @@
   "holonomicMode": true,
   "pathFolders": [
     "Blue",
+    "Comp 1 Blue",
+    "Comp 1 Red",
+    "Side Paths",
     "Ramon's Blue",
     "Red",
     "Test Blue",
-    "Working Blue"
+    "Test Red"
   ],
   "autoFolders": [
+    "Side Autos",
     "Ramon's Autos",
+    "Test",
     "Working Comp"
   ],
-  "defaultMaxVel": 4.5,
+  "defaultMaxVel": 3.25,
   "defaultMaxAccel": 4.0,
   "defaultMaxAngVel": 540.0,
   "defaultMaxAngAccel": 720.0,

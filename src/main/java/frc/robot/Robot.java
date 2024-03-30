@@ -32,7 +32,7 @@ public class Robot extends LoggedRobot {
 
     m_robotContainer = new RobotContainer();
 
-    CameraServer.startAutomaticCapture();
+    //CameraServer.startAutomaticCapture();
   }
 
   @Override
@@ -54,6 +54,8 @@ public class Robot extends LoggedRobot {
       m_robotContainer.setClimberBrakes(false);
       disabledTime = Double.MAX_VALUE;
     }
+
+    m_robotContainer.seedIntakePosition();
   }
 
   @Override

@@ -1,0 +1,204 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 15.203071775615735,
+      "y": 5.597779868883561
+    },
+    "rotation": -179.2042764472608
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeUp"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShooterOn"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AimSubwoofer"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New SubToNote 2 Red"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New SubToNote 1 Red"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New SubToNote 3 Red"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Test",
+  "choreoAuto": false
+}

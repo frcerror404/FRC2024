@@ -1623,12 +1623,25 @@
               "Colors/Color when true": "#7CFC00FF",
               "Colors/Color when false": "#8B0000FF"
             }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///conveyor/Indexer RPM",
+              "_title": "/Indexer RPM",
+              "_glyph": 148,
+              "_showGlyph": false
+            }
           }
         }
       }
     },
     {
-      "title": "Tab 8",
+      "title": "Camera",
       "autoPopulate": false,
       "autoPopulatePrefix": "",
       "widgetPane": {
@@ -1638,7 +1651,7 @@
         "vgap": 16.0,
         "titleType": 0,
         "tiles": {
-          "4,1": {
+          "4,0": {
             "size": [
               8,
               5
