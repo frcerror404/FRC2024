@@ -89,8 +89,8 @@ public class Constants {
     public static final double SUBWOOFER_BOTTOM_RPM = 2850;
     
     // Changing constants to up spped for a consistent shot
-    public static final double AMP_TOP_RPM = 775; //650 -> 850
-    public static final double AMP_BOTTOM_RPM = 875; //500 -> 975
+    public static final double AMP_TOP_RPM = 750; //650 -> 750
+    public static final double AMP_BOTTOM_RPM = 750; //500 -> 750
 
     public static final double TRUSS_TOP_RPM = 2850;
     public static final double TRUSS_BOTTOM_RPM = 3100;
@@ -121,7 +121,7 @@ public class Constants {
      */
 
     public static final double CLIMBER_CURRENT_LIMIT = 30.0;
-    public static final double AUTO_DISABLE_BRAKE_TIME_SEC = 10.0;
+    public static final double AUTO_DISABLE_BRAKE_TIME_SEC = 30.0;
 
     /**
      * Drive Current Limits

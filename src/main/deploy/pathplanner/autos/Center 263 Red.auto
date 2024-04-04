@@ -94,43 +94,6 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of New SubToNote 3 Red"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDown"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeOn"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IndexerOff"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ConveyorOn"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
             "pathName": "Copy of New SubToNote 2 Red"
           }
         },
@@ -168,7 +131,44 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of New SubToNote 1 Red"
+            "pathName": "SubToNote 6 Red"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New SubToNote 3 Red"
           }
         },
         {
@@ -199,6 +199,6 @@
       ]
     }
   },
-  "folder": "Test",
+  "folder": "Comp Red",
   "choreoAuto": false
 }

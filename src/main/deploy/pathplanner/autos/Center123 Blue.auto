@@ -131,7 +131,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of SubToNote Blue"
+            "pathName": "Copy of SubToNote 1 Blue"
           }
         },
         {
@@ -199,6 +199,6 @@
       ]
     }
   },
-  "folder": "Test",
+  "folder": "Comp Blue",
   "choreoAuto": false
 }

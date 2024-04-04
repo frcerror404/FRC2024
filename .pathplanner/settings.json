@@ -13,9 +13,10 @@
     "Test Red"
   ],
   "autoFolders": [
-    "Side Autos",
+    "Comp Red",
     "Ramon's Autos",
-    "Test",
+    "Side Autos",
+    "Comp Blue",
     "Working Comp"
   ],
   "defaultMaxVel": 3.25,

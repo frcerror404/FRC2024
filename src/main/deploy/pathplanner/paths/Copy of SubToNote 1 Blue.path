@@ -3,61 +3,61 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 15.32,
-        "y": 5.597779868883561
+        "x": 1.2783431410406647,
+        "y": 5.476528653340059
       },
       "prevControl": null,
       "nextControl": {
-        "x": 15.230997434615052,
-        "y": 6.0299576961076635
+        "x": 1.4101982966315676,
+        "y": 5.533772974395056
       },
       "isLocked": false,
-      "linkedName": "Red Start"
+      "linkedName": "Blue Start"
     },
     {
       "anchor": {
-        "x": 14.739919998218884,
-        "y": 6.926356849886179
+        "x": 1.9175147115609972,
+        "y": 6.902972524135435
       },
       "prevControl": {
-        "x": 15.238785614234754,
-        "y": 6.77046134488122
+        "x": 1.2761121283582926,
+        "y": 6.290724603805581
       },
       "nextControl": {
-        "x": 14.26832982899966,
-        "y": 7.073728777767188
+        "x": 2.2604848225719074,
+        "y": 7.230353084645849
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 13.820136518689626,
-        "y": 7.07445757964089
+        "x": 3.024372797096207,
+        "y": 7.245942635146345
       },
       "prevControl": {
-        "x": 13.820136518689626,
-        "y": 7.028429398290311
+        "x": 3.024372797096207,
+        "y": 7.199914453795766
       },
       "nextControl": {
-        "x": 13.820136518689626,
-        "y": 7.111814550676501
+        "x": 3.024372797096207,
+        "y": 7.283299606181956
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 15.32,
-        "y": 5.597779868883561
+        "x": 1.2783431410406647,
+        "y": 5.476528653340059
       },
       "prevControl": {
-        "x": 15.319999999996535,
-        "y": 5.597779868888333
+        "x": 1.278343141037199,
+        "y": 5.476528653344831
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Red Start"
+      "linkedName": "Blue Start"
     }
   ],
   "rotationTargets": [],
@@ -142,13 +142,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0,
+    "rotation": 0.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Test Red",
+  "folder": "Test Blue",
   "previewStartingState": {
-    "rotation": 179.225779835072,
+    "rotation": 0,
     "velocity": 0
   },
   "useDefaultConstraints": true

@@ -205,6 +205,6 @@
       ]
     }
   },
-  "folder": "Test",
+  "folder": null,
   "choreoAuto": false
 }

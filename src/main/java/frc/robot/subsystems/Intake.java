@@ -45,8 +45,15 @@ private final DoublePublisher RightIntakeTempOut;
   }
 
   public void setIntakeSpeed(double speed) {
-    LeftIntakeMotor.setControl(new DutyCycleOut(speed));
-    RightIntakeMotor.setControl(new DutyCycleOut(speed));
+
+    if(speed < 0) {
+      LeftIntakeMotor.setControl(new DutyCycleOut(speed));
+      RightIntakeMotor.setControl(new DutyCycleOut(speed * 0.5));
+    } else {
+      LeftIntakeMotor.setControl(new DutyCycleOut(speed));
+      RightIntakeMotor.setControl(new DutyCycleOut(speed));
+    }
+    
   }
 
   @Override

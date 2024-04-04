@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3251117925421525,
-      "y": 5.562271181092787
+      "x": 1.3374413054104268,
+      "y": 5.476528653340059
     },
     "rotation": 0
   },
@@ -14,7 +14,7 @@
         {
           "type": "named",
           "data": {
-            "name": "IntakeDown"
+            "name": "IntakeUp"
           }
         },
         {
@@ -32,7 +32,7 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 0.125
+            "waitTime": 0.25
           }
         },
         {
@@ -57,13 +57,19 @@
         {
           "type": "wait",
           "data": {
-            "waitTime": 0.375
+            "waitTime": 0.25
           }
         },
         {
           "type": "parallel",
           "data": {
             "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShooterOff"
+                }
+              },
               {
                 "type": "named",
                 "data": {
@@ -81,12 +87,6 @@
                 "data": {
                   "name": "IntakeOn"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ConveyorOnAutoStop"
-                }
               }
             ]
           }
@@ -94,44 +94,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 2 Blue"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDown"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeOn"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IndexerOff"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ConveyorOnAutoStop"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CenterSubToNote 1 Blue"
+            "pathName": "Copy of SubToNote 2 Blue"
           }
         },
         {
@@ -159,7 +122,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOnAutoStop"
+                  "name": "ConveyorOn"
                 }
               }
             ]
@@ -168,13 +131,44 @@
         {
           "type": "path",
           "data": {
-            "pathName": "CenterSubToNote 3 Blue"
+            "pathName": "Copy of SubToNote 1 Blue"
           }
         },
         {
-          "type": "wait",
+          "type": "parallel",
           "data": {
-            "waitTime": 0.5
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDown"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeOn"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of SubToNote 3 Blue"
           }
         },
         {
@@ -205,6 +199,6 @@
       ]
     }
   },
-  "folder": "Working Comp",
+  "folder": "Comp Blue",
   "choreoAuto": false
 }

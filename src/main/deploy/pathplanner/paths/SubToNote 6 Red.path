@@ -3,69 +3,85 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.2783431410406647,
-        "y": 5.476528653340059
+        "x": 15.32,
+        "y": 5.597779868883561
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4101982966315676,
-        "y": 5.533772974395056
+        "x": 15.09749410563015,
+        "y": 5.457249830334183
       },
       "isLocked": false,
-      "linkedName": "Blue Start"
+      "linkedName": "Red Start"
     },
     {
       "anchor": {
-        "x": 2.4851032868970147,
-        "y": 5.515804013063089
+        "x": 11.692162875371935,
+        "y": 4.463207870807824
       },
       "prevControl": {
-        "x": 1.598398832364766,
-        "y": 5.515804013063089
+        "x": 12.16764416563706,
+        "y": 5.1257637670789
       },
       "nextControl": {
-        "x": 2.9468714662491,
-        "y": 5.515804013063089
+        "x": 11.404091548102194,
+        "y": 4.061797004940154
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.172473526850918,
-        "y": 5.515804013063089
+        "x": 8.30923041676432,
+        "y": 4.1046482092964185
       },
       "prevControl": {
-        "x": 3.172473526850918,
-        "y": 5.469775831712511
+        "x": 8.30923041676432,
+        "y": 4.05862002794584
       },
       "nextControl": {
-        "x": 3.172473526850918,
-        "y": 5.5531609840987
+        "x": 8.30923041676432,
+        "y": 4.14200518033203
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.2783431410406647,
-        "y": 5.476528653340059
+        "x": 12.261181468640036,
+        "y": 4.813972757068982
       },
       "prevControl": {
-        "x": 1.2783431410371993,
-        "y": 5.476528653344831
+        "x": 10.671047317589451,
+        "y": 4.104648209296417
+      },
+      "nextControl": {
+        "x": 13.871078646063596,
+        "y": 5.532113164645178
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 15.32,
+        "y": 5.597779868883561
+      },
+      "prevControl": {
+        "x": 15.319999999996535,
+        "y": 5.597779868888333
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Blue Start"
+      "linkedName": "Red Start"
     }
   ],
   "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.0,
-      "maxWaypointRelativePos": 2.15,
+      "minWaypointRelativePos": 1.65,
+      "maxWaypointRelativePos": 2.3,
       "constraints": {
         "maxVelocity": 1.0,
         "maxAcceleration": 4.0,
@@ -77,7 +93,7 @@
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 1.85,
+      "waypointRelativePos": 1.9500000000000002,
       "command": {
         "type": "parallel",
         "data": {
@@ -112,7 +128,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 2.8499999999999996,
+      "waypointRelativePos": 3.7,
       "command": {
         "type": "parallel",
         "data": {
@@ -142,13 +158,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0,
+    "rotation": 180.0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Test Blue",
+  "folder": "Test Red",
   "previewStartingState": {
-    "rotation": 0,
+    "rotation": 179.225779835072,
     "velocity": 0
   },
   "useDefaultConstraints": true

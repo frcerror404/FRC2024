@@ -49,7 +49,7 @@ import frc.robot.subsystems.ShooterAngle;
 
 public class RobotContainer {
   private static final double MaxSpeed = 6; // 6 meters per second desired top speed
-  private static final double MaxAngularRate = Math.PI; // Half a rotation per second max angular velocity
+  private static final double MaxAngularRate = Math.PI * 1.5; // Half a rotation per second max angular velocity
   private final SendableChooser<Command> autoChooser;
 
 
@@ -97,8 +97,12 @@ public class RobotContainer {
 
     //Added a right bumper shot for the far shot.
     driver.rightBumper()
-        .whileTrue(new SetShooterSpeed(shooter, 0.55)) 
-        .whileFalse(new SetShooterSpeed(shooter, 0));
+        .whileTrue(new SetShooterRPM(shooter, 630, 630)) 
+        .whileFalse(new SetShooterRPM(shooter, 0, 0));
+
+    driver.leftBumper()
+        .whileTrue(new SetShooterRPM(shooter, 660, 660)) 
+        .whileFalse(new SetShooterRPM(shooter, 0, 0));
     
     // Kept the shot the same
     driver.rightTrigger(0.5)
@@ -106,11 +110,12 @@ public class RobotContainer {
         .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.leftTrigger(0.5)
-        .whileTrue(new SetShooterRPM(shooter, Constants.AMP_TOP_RPM, Constants.AMP_BOTTOM_RPM))
+        //.whileTrue(new SetShooterRPM(shooter, Constants.AMP_TOP_RPM, Constants.AMP_BOTTOM_RPM))
+        .whileTrue(new SetShooterRPM(shooter, 700, 700)) 
         .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.a()
-        .whileTrue(new IndexerAndConveyor(conveyor, indexer, 0.5, 1.0))
+        .whileTrue(new IndexerAndConveyor(conveyor, indexer, 0.6, 1.0))
         .whileFalse(new IndexerAndConveyor(conveyor, indexer, 0.0, 0.0));
 
     driver.y()
@@ -139,7 +144,7 @@ public class RobotContainer {
         .whileFalse(new SetIntakeSpeed(intake, 0.0));
 
     operator.x()
-        .whileTrue(new SetIntakeSpeed(intake, -0.6))
+        .whileTrue(new SetIntakeSpeed(intake, -0.4))
         .whileFalse(new SetIntakeSpeed(intake, 0.0));
 
     operator.b()
