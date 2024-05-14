@@ -111,7 +111,7 @@ public class RobotContainer {
 
     driver.leftTrigger(0.5)
         //.whileTrue(new SetShooterRPM(shooter, Constants.AMP_TOP_RPM, Constants.AMP_BOTTOM_RPM))
-        .whileTrue(new SetShooterRPM(shooter, 700, 700)) 
+        .whileTrue(new SetShooterRPM(shooter, 3675, 3675)) 
         .whileFalse(new SetShooterRPM(shooter, 0, 0));
 
     driver.a()

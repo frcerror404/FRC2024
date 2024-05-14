@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3374413054104268,
-      "y": 5.476528653340059
+      "x": 15.203071775615735,
+      "y": 5.597779868883561
     },
-    "rotation": 0
+    "rotation": -179.2042764472608
   },
   "command": {
     "type": "sequential",
@@ -94,7 +94,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of SubToNote 2 Blue"
+            "pathName": "Copy of New SubToNote 2 Red"
           }
         },
         {
@@ -131,7 +131,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SubToNote 6 Blue"
+            "pathName": "Copy of New SubToNote 3 Red"
           }
         },
         {
@@ -168,7 +168,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of SubToNote 3 Blue"
+            "pathName": "SubToNote 6 Red"
           }
         },
         {
@@ -199,6 +199,6 @@
       ]
     }
   },
-  "folder": "Comp Blue",
+  "folder": "Comp Red",
   "choreoAuto": false
 }

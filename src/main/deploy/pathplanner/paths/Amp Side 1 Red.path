@@ -3,97 +3,59 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.2783431410406647,
-        "y": 5.476528653340059
+        "x": 15.893546735255583,
+        "y": 6.622360615126508
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4101982966315676,
-        "y": 5.533772974395056
+        "x": 14.98935280622682,
+        "y": 7.004304602388659
       },
       "isLocked": false,
-      "linkedName": "Blue Start"
+      "linkedName": "Red Amp Side"
     },
     {
       "anchor": {
-        "x": 5.331626271169602,
-        "y": 4.369670567804849
+        "x": 13.68762533943541,
+        "y": 6.99650982713841
       },
       "prevControl": {
-        "x": 4.719555629216671,
-        "y": 5.114800044964939
+        "x": 13.68762533943541,
+        "y": 6.950481645787831
       },
       "nextControl": {
-        "x": 5.510906101925305,
-        "y": 4.151416860797906
+        "x": 13.68762533943541,
+        "y": 7.033866798174022
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 8.317025192014569,
-        "y": 4.050084782544683
+        "x": 15.893546735255583,
+        "y": 6.622360615126508
       },
       "prevControl": {
-        "x": 8.317025192014569,
-        "y": 4.004056601194105
-      },
-      "nextControl": {
-        "x": 8.317025192014569,
-        "y": 4.087441753580295
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 5.074398687911419,
-        "y": 4.564539949061047
-      },
-      "prevControl": {
-        "x": 5.970797841689934,
-        "y": 4.13582731029741
-      },
-      "nextControl": {
-        "x": 3.5163849912853893,
-        "y": 5.309676934403931
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 1.2783431410406647,
-        "y": 5.476528653340059
-      },
-      "prevControl": {
-        "x": 1.278343141037199,
-        "y": 5.476528653344831
+        "x": 15.89354673525212,
+        "y": 6.622360615131281
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Blue Start"
+      "linkedName": "Red Amp Side"
     }
   ],
-  "rotationTargets": [],
-  "constraintZones": [
+  "rotationTargets": [
     {
-      "name": "Slow for Note Pickup",
-      "minWaypointRelativePos": 1.65,
-      "maxWaypointRelativePos": 2.3,
-      "constraints": {
-        "maxVelocity": 1.0,
-        "maxAcceleration": 4.0,
-        "maxAngularVelocity": 540.0,
-        "maxAngularAcceleration": 720.0
-      }
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -179.90831348051285,
+      "rotateFast": false
     }
   ],
+  "constraintZones": [],
   "eventMarkers": [
     {
       "name": "Stop Intake",
-      "waypointRelativePos": 2.45,
+      "waypointRelativePos": 1.0,
       "command": {
         "type": "parallel",
         "data": {
@@ -128,7 +90,7 @@
     },
     {
       "name": "Shoot Note 2",
-      "waypointRelativePos": 3.7,
+      "waypointRelativePos": 1.85,
       "command": {
         "type": "parallel",
         "data": {
@@ -158,14 +120,15 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0,
+    "rotation": 120.96375653207359,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Test Blue",
+  "folder": "Red",
   "previewStartingState": {
-    "rotation": 0,
+    "rotation": 121.607502246249,
     "velocity": 0
   },
   "useDefaultConstraints": true
+}
 }

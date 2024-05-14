@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3374413054104268,
-      "y": 5.476528653340059
+      "x": 15.909136285756079,
+      "y": 4.471002646058071
     },
-    "rotation": 0
+    "rotation": -118.61045966596532
   },
   "command": {
     "type": "sequential",
@@ -94,44 +94,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of SubToNote 2 Blue"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDown"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeOn"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "IndexerOff"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "ConveyorOnAutoStop"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "SubToNote 6 Blue"
+            "pathName": "Source Side 3 Red"
           }
         },
         {
@@ -168,7 +131,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Copy of SubToNote 3 Blue"
+            "pathName": "Source Side 8 Red"
           }
         },
         {
@@ -178,19 +141,25 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ShooterOff"
+                  "name": "IntakeDown"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "ConveyorOff"
+                  "name": "IntakeOn"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "IndexerOff"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ConveyorOn"
                 }
               }
             ]
@@ -199,6 +168,6 @@
       ]
     }
   },
-  "folder": "Comp Blue",
+  "folder": "Comp Red",
   "choreoAuto": false
 }

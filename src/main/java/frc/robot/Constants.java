@@ -121,7 +121,7 @@ public class Constants {
      */
 
     public static final double CLIMBER_CURRENT_LIMIT = 30.0;
-    public static final double AUTO_DISABLE_BRAKE_TIME_SEC = 30.0;
+    public static final double AUTO_DISABLE_BRAKE_TIME_SEC = 60.0;
 
     /**
      * Drive Current Limits

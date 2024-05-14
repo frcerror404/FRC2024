@@ -1624,8 +1624,8 @@
         "tiles": {
           "0,0": {
             "size": [
-              1,
-              1
+              2,
+              2
             ],
             "content": {
               "_type": "Boolean Box",
@@ -1637,10 +1637,10 @@
               "Colors/Color when false": "#8B0000FF"
             }
           },
-          "1,0": {
+          "2,0": {
             "size": [
-              1,
-              1
+              2,
+              2
             ],
             "content": {
               "_type": "Text View",
